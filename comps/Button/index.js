@@ -3,16 +3,17 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#D57FFE",
+    backgroundColor: "#2A3858",
     margin: 5,
-    borderRadius: 15,
-    padding: 10,
+    borderRadius: 2,
+    padding: 15,
+    minWidth: 200,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center"
   },
   text: {
-    color: "#FFF"
+    color: "#F5F5F5"
   },
   text2: {
     fontSize: 21,
@@ -22,21 +23,14 @@ const styles = StyleSheet.create({
 
 const Button = ({ text }) => {
   return (
-    <TouchableOpacity
-      onPress={() => {
-        alert("Clicked!");
-      }}
-    >
       <View style={styles.container}>
         <Text style={styles.text}>{text}</Text>
-        <Text style={styles.text2}>More words</Text>
       </View>
-    </TouchableOpacity>
   );
-};
+}
 
 Button.defaultProps = {
-  text: "Press Me"
+  text: "Default button"
 };
 
 export default Button;
