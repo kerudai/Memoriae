@@ -10,6 +10,8 @@ import './MyStoryBox.stories';
 import './MyLogo.stories';
 import './FirstScreen.stories';
 import './LogInScreen.stories';
+import './ForgotPasswordScreen.stories';
+import './NewPostScreen.stories';
 // import './MyStory.stories';
 // import './MySort.stories';
 // import './MyTimePic.stories';

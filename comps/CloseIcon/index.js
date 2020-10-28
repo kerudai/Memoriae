@@ -6,8 +6,8 @@ const styles = StyleSheet.create({
     padding: 10,
     },
         stretch: {
-        minWidth: 15,
-        minHeight: 20,
+        minWidth: 10,
+        minHeight: 10,
         resizeMode: 'stretch',
         },
 });

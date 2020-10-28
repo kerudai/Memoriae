@@ -4,11 +4,12 @@ import { View, Text, StyleSheet, Image} from "react-native";
 const styles = StyleSheet.create({
   container: {
     backgroundColor:'#2A3858',
-    height:60,
-    width:414,
+    minHeight:60,
+    minWidth:214,
     flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
+    borderRadius: 2,
   },
   text: {
     color:'#FFFFFF',

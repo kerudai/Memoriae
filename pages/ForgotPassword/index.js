@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     cont: {
         backgroundColor: "white",
         alignItems: "center",
+        flex: 1,
     },
     Mlogo: {
         position: "absolute",
@@ -42,20 +43,9 @@ const styles = StyleSheet.create({
         width: 300,
         height: 45,
     },
-    textBold: {
-        fontWeight: "bold",
-    },
-    textLine: {
-        flexDirection: "row",
-        alignItems: "center",
-    },
-    textW :{
-        marginTop: 4,
-        alignItems: "center",
-    },
 });
 
-const LogInScreen = () => {
+const ForgotPasswordScreen = () => {
     return (
         <View style={[globalstyle.rows, styles.cont]}>
             <View style={styles.Mlogo}>
@@ -66,20 +56,14 @@ const LogInScreen = () => {
             </View>
             <View style={styles.inner}>
                 <View style={styles.input}>
-                    <Input text="Username" />
+                    <Input text="Email" />
                 </View>
+                <Text style={styles.text}>Or</Text>
                 <View style={styles.input}>
-                    <Input text="Input" />
+                    <Input text="Account Number" />
                 </View>
                 <View style={styles.button}>
-                    <Button style={styles.button} text="Log In" />
-                </View>
-                <View style={styles.textW}>
-                <Text style={styles.text}>Forgot your password?</Text>
-                <View style={styles.textLine}>
-                <Text style={styles.text}>don't have an acccount?</Text>
-                <Text style={styles.textBold}> Register</Text>
-                </View>
+                    <Button style={styles.button} text="Continue" />
                 </View>
 
             </View>
@@ -87,4 +71,4 @@ const LogInScreen = () => {
     );
 };
 
-export default LogInScreen;
+export default ForgotPasswordScreen;
