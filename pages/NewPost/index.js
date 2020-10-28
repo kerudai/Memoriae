@@ -48,10 +48,12 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     button: {
-        width: 600,
-        alignItems: "center",
-        position: "absolute",
-        bottom: 10
+        // alignItems: "center",
+        // position: "absolute",
+        bottom: 70,
+        width: 320,
+        maxHeight: 50,
+
     },
     date: {
         marginTop: 40,
@@ -60,11 +62,16 @@ const styles = StyleSheet.create({
         height: 480,
         width: 340,
         alignItems: "center",
-        justifyContent: "center",
+        // justifyContent: "center",
+        // borderRadius: 15,
+        // borderColor: "black",
+        // borderWidth: 0.5,
+    },
+    input: {
+        width: 340,
+        height: 480,
         borderRadius: 15,
-        borderColor: "black",
-        borderWidth: 0.5,
-        margin: 20,
+        marginTop: 20,
     },
 });
 
@@ -72,9 +79,9 @@ const NewPostScreen = () => {
     return (
         <View style={[globalstyle.rows, styles.cont]}>
             <View style={styles.header}>
-            <CloseIcon />
-            <Text style={styles.title}>New Post</Text>
-            <Text style={styles.NextT}>Next</Text>
+                <CloseIcon />
+                <Text style={styles.title}>New Post</Text>
+                <Text style={styles.NextT}>Next</Text>
             </View>
             <View style={styles.inner}>
                 <View styles={styles.h1}>
@@ -86,13 +93,13 @@ const NewPostScreen = () => {
                     <View style={styles.line}></View>
                 </View>
                 <View style={styles.type}>
-                    <Input text="start typing..." />
+                    <View style={styles.input}>
+                        <Input text="start typing..." />
+                    </View>
                     <View style={styles.button}>
-                    <UploadMedia text="Add Pictures" />
+                        <UploadMedia text="Add Pictures" />
+                    </View>
                 </View>
-                </View>
-        
-
             </View>
         </View>
     );

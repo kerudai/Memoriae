@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
     cont: {
         backgroundColor: "white",
         alignItems: "center",
-        flex: 1,
     },
     Mlogo: {
         position: "absolute",
@@ -41,6 +40,7 @@ const styles = StyleSheet.create({
     input: {
         margin: 10,
         width: 300,
+        height: 45,
     },
     textBold: {
         fontWeight: "bold",
