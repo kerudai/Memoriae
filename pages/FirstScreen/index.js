@@ -10,8 +10,10 @@ const styles = StyleSheet.create({
     cont: {
         backgroundColor: "white",
         alignItems: "center",
-        marginTop: 100,
         flex: 1,
+    },
+    Mlogo: {
+        marginTop: 100,
     },
     inner: {
         alignItems: "center",
@@ -33,7 +35,9 @@ const styles = StyleSheet.create({
 const FirstScreen = () => {
     return (
         <View style={[globalstyle.rows, styles.cont]}>
+            <View style={styles.Mlogo}>
             <Logo />
+            </View>
             <View style={styles.inner}>
                 <View style={styles.button}>
                 <Button style={styles.button} text="Log In" />

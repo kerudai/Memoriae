@@ -4,9 +4,9 @@ import { Text } from 'react-native';
 import CenterView from './CenterView';
 import FirstScreen from '../../pages/FirstScreen';
 
-storiesOf('First Screen', module)
+storiesOf('First Page', module)
 //   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add('First Screen', () => (
+  .add('First Page', () => (
     <FirstScreen />
   ))
 
