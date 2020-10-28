@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
     fontSize:32,
   },
   img: {
-    fontSize:60,
-    left:10,
+    left:20,
     position:'absolute',
-    maxHeight:24,
-    maxWidth:22,
+    height:24,
+    width:22,
+    border: 1
   }
 });
 

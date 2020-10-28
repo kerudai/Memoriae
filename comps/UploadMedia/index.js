@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image} from "react-native";
 const styles = StyleSheet.create({
   container: {
     backgroundColor:'#2A3858',
-    minHeight:60,
+    height:60,
     width:414,
     flexDirection:'row',
     justifyContent:'center',
@@ -16,8 +16,9 @@ const styles = StyleSheet.create({
   },
   img: {
     fontSize:40,
-    maxHeight:34,
-    maxWidth :42,
+    height:34,
+    width :42,
+    marginRight:10,
   }
 });
 
