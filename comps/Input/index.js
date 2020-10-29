@@ -31,7 +31,6 @@ const Input = ({ text }) => {
   
   Input.defaultProps = {
     text: "Default Input",
-    height: 500,
   };
 
 export default Input;

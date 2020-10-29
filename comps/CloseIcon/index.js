@@ -3,27 +3,32 @@ import { View, Image, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    // padding: 10,
     },
         stretch: {
-        minWidth: 10,
-        minHeight: 10,
-        resizeMode: 'stretch',
+        // maxWidth: 35,
+        // maxHeight: 35,
+        // resizeMode: 'fit',
         },
 });
 
-const CloseIcon = ({text}) => {
+const CloseIcon = ({dim}) => {
+  var dimstyle = { width: dim, height: dim};
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container]}>
       <Image
         style={styles.stretch}
         source={require('../../Images/close.png')}
+        resizeMode={"cover"}
       />
-      <Text style={styles.text}>{text}</Text>
     </View>
   );
 }
 
+CloseIcon.defaultProps = {
+  dim: 10
+};
   
 
 export default CloseIcon;
