@@ -1,7 +1,8 @@
 import React from "react";
 import globalstyle from "../globalstyle";
 import Logo from '../../comps/Logo';
-import Button from '../../comps/Button';
+import Button1 from '../../comps/Button';
+
 
 import {View, StyleSheet, Text} from "react-native"
 import CenterView from "../../storybook/stories/CenterView";
@@ -17,18 +18,17 @@ const styles = StyleSheet.create({
     },
     inner: {
         alignItems: "center",
-        justifyContent: "center",
-        marginTop: 30,
+        justifyContent: "space-evenly",
+        marginTop: 40,
+        height: 200
     },
     text: {
         color: "#1F1F1F",
-        marginTop: -40
        
     },
     button: {
-        margin: 10,
-        width: 300,
-        height: 100
+
+        width: 320,
     }
 });
 
@@ -40,11 +40,11 @@ const FirstScreen = () => {
             </View>
             <View style={styles.inner}>
                 <View style={styles.button}>
-                <Button style={styles.button} text="Log In" />
+                <Button1 style={styles.button} text="Log In" />
                 </View>
                 <Text style={styles.text}>Forgot your password?</Text>
                 <View style={styles.button}>
-                <Button style={styles.button} text="Register" />
+                <Button1 style={styles.button} text="Register" />
                 </View>
             </View>
         </View>

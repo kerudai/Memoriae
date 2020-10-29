@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
        width: 500,
        alignItems: "baseline",
        marginTop: 10,
+       marginBottom: 30,
     },
     title: {
         fontWeight: "bold",
@@ -73,13 +74,20 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         marginTop: 20,
     },
+    close: {
+        width: 5,
+        height: 5,
+        // marginBottom: 25,
+    },
 });
 
 const NewPostScreen = () => {
     return (
         <View style={[globalstyle.rows, styles.cont]}>
             <View style={styles.header}>
-                <CloseIcon />
+                <View style={styles.close}>
+                    <CloseIcon />
+                </View>
                 <Text style={styles.title}>New Post</Text>
                 <Text style={styles.NextT}>Next</Text>
             </View>

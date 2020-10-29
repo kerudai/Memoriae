@@ -2,7 +2,7 @@ import React from "react";
 import globalstyle from "../globalstyle";
 import Input from '../../comps/Input';
 import SmallLogo from '../../comps/SmallLogo';
-import Button from '../../comps/Button';
+import Button1 from '../../comps/Button';
 import CloseIcon from '../../comps/CloseIcon';
 
 import {View, StyleSheet, Text} from "react-native"
@@ -72,7 +72,7 @@ const LogInScreen = () => {
                     <Input text="Input" />
                 </View>
                 <View style={styles.button}>
-                    <Button style={styles.button} text="Log In" />
+                    <Button1 style={styles.button} text="Log In" />
                 </View>
                 <View style={styles.textW}>
                 <Text style={styles.text}>Forgot your password?</Text>
