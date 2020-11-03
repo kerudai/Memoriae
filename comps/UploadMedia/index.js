@@ -24,6 +24,8 @@ const styles = StyleSheet.create({
 });
 
 const UploadMedia = ({text}) => {
+
+
   return (
       <View style={styles.container}>
         <Image style={styles.img} source={require('../../Images/addmedia.png')} />
@@ -33,7 +35,7 @@ const UploadMedia = ({text}) => {
 }
 
 UploadMedia.defaultProps = {
-  text: 'Upload Media'
+  text: 'Upload Media',
 };
 
 export default UploadMedia;
