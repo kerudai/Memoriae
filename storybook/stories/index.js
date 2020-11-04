@@ -7,6 +7,8 @@ import './MyInput.stories';
 import './MyHeader.stories';
 import './MyUploadMedia.stories';
 import './MyStoryBox.stories';
+import './MyLogo.stories';
+import './Pages.stories';
 // import './MyStory.stories';
 // import './MySort.stories';
 // import './MyTimePic.stories';
