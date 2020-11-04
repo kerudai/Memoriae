@@ -19,22 +19,18 @@ const MyStory = ({ s_title, s_date, s_telling }) => {
 
 const styles = StyleSheet.create({
   container: {
-    minWidth: "100px",
-    minHeight: "100px",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
-    borderRadius: "50%"
     // position: "relative"
   },
   s_title: {
-    fontWeight: "bold"
+    fontWeight: "bold",
+    width: 100
   },
   s_date: {
     fontSize: ".5rem"
   },
   s_telling: {
-    position: "relative",
-    left: "20px"
+    width: 50,
+    textAlign: "right"
   }
 });
 
