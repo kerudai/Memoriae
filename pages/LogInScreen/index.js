@@ -12,16 +12,24 @@ const styles = StyleSheet.create({
     cont: {
         backgroundColor: "white",
         alignItems: "center",
+        marginTop: 40,
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
+        height:690,
+    },
+    main: {
+        backgroundColor: "#F5F5F5",
+        flex: 1,
     },
     Mlogo: {
         position: "absolute",
-        left: 0,
-        top: 40,
+        left: 5,
+        top: 10,
     },
     close: {
         position: "absolute",
-        right: 0,
-        top: 55,
+        right: 30,
+        top: 35,
     },
     inner: {
         alignItems: "center",
@@ -57,6 +65,7 @@ const styles = StyleSheet.create({
 
 const LogInScreen = () => {
     return (
+        <View style={styles.main}>
         <View style={[globalstyle.rows, styles.cont]}>
             <View style={styles.Mlogo}>
             <SmallLogo />
@@ -81,7 +90,7 @@ const LogInScreen = () => {
                 <Text style={styles.textBold}> Register</Text>
                 </View>
                 </View>
-
+                </View>
             </View>
         </View>
     );

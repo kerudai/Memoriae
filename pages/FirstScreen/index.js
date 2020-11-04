@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     Mlogo: {
-        marginTop: 100,
+        marginTop: 140,
     },
     inner: {
         alignItems: "center",

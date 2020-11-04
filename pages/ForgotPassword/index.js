@@ -16,13 +16,13 @@ const styles = StyleSheet.create({
     },
     Mlogo: {
         position: "absolute",
-        left: 0,
+        left: 5,
         top: 40,
     },
     close: {
         position: "absolute",
-        right: 0,
-        top: 55,
+        right: 20,
+        top: 65,
     },
     inner: {
         alignItems: "center",

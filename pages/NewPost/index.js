@@ -4,6 +4,8 @@ import Input from '../../comps/Input';
 import SmallLogo from '../../comps/SmallLogo';
 import UploadMedia from '../../comps/UploadMedia';
 import CloseIcon from '../../comps/CloseIcon';
+import StoryBox from '../../comps/StoryBox';
+import { Dimensions } from 'react-native';
 
 import {View, StyleSheet, Text} from "react-native"
 import CenterView from "../../storybook/stories/CenterView";
@@ -17,6 +19,10 @@ const styles = StyleSheet.create({
         margin: 15,
         borderRadius: 5,
         // justifyContent: "center"
+    },
+    main: {
+        backgroundColor: "#F5F5F5",
+        flex: 1,
     },
     header: {
        flexDirection: "row",
@@ -70,9 +76,9 @@ const styles = StyleSheet.create({
     },
     input: {
         width: 340,
-        height: 480,
+        height: 490,
         borderRadius: 15,
-        marginTop: 20,
+        marginTop: 40,
     },
     close: {
         width: 5,
@@ -82,7 +88,11 @@ const styles = StyleSheet.create({
 });
 
 const NewPostScreen = () => {
+
+    const windowHeight = Dimensions.get('window').height;
+
     return (
+        <View style={styles.main}>
         <View style={[globalstyle.rows, styles.cont]}>
             <View style={styles.header}>
                 <View style={styles.close}>
@@ -108,6 +118,7 @@ const NewPostScreen = () => {
                         <UploadMedia text="Add Pictures" />
                     </View>
                 </View>
+            </View>
             </View>
         </View>
     );
