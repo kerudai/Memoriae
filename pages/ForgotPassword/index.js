@@ -5,6 +5,8 @@ import SmallLogo from '../../comps/SmallLogo';
 import Button from '../../comps/Button';
 import CloseIcon from '../../comps/CloseIcon';
 
+import { NativeRouter, Route, Link } from "react-router-native";
+
 import {View, StyleSheet, Text} from "react-native"
 import CenterView from "../../storybook/stories/CenterView";
 
@@ -47,6 +49,7 @@ const styles = StyleSheet.create({
 
 const ForgotPasswordScreen = () => {
     return (
+        <NativeRouter>
         <View style={[globalstyle.rows, styles.cont]}>
             <View style={styles.Mlogo}>
             <SmallLogo />
@@ -65,9 +68,9 @@ const ForgotPasswordScreen = () => {
                 <View style={styles.button}>
                     <Button style={styles.button} text="Continue" />
                 </View>
-
             </View>
         </View>
+        </NativeRouter>
     );
 };
 
