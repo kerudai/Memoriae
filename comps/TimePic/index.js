@@ -1,21 +1,26 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 
 const MyTimePic = () => {
   return (
     <View style={styles.container}>
-      <Text></Text>
+      <Image
+        style={styles.image}
+        source={require("../../../Images/johntime.png")}
+        resizeMode={"contain"}
+      ></Image>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundImage: "url(/johntime.png)",
-    minWidth: "100%",
-    minHeight: "100%",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain"
+    // minWidth: 50,
+    // minHeight: 50
+  },
+  image: {
+    width: 250,
+    height: 250
   }
 });
 export default MyTimePic;
