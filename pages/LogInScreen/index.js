@@ -4,6 +4,7 @@ import Input from '../../comps/Input';
 import SmallLogo from '../../comps/SmallLogo';
 import Button1 from '../../comps/Button';
 import CloseIcon from '../../comps/CloseIcon';
+import PassInput from '../../comps/PassInput';
 
 import {View, StyleSheet, Text} from "react-native"
 import CenterView from "../../storybook/stories/CenterView";
@@ -75,10 +76,10 @@ const LogInScreen = () => {
             </View>
             <View style={styles.inner}>
                 <View style={styles.input}>
-                    <Input text="Username" />
+                    <Input placeholder="Username"/>
                 </View>
                 <View style={styles.input}>
-                    <Input text="Input" />
+                    <PassInput placeholder="Password" />
                 </View>
                 <View style={styles.button}>
                     <Button1 style={styles.button} text="Log In" />

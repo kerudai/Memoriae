@@ -10,12 +10,12 @@
 //  import NewPost from './pages/NewPost'
 //   export default NewPost ;
 
-import FirstScreen from './pages/FirstScreen'
- export default FirstScreen ;
+// import FirstScreen from './pages/FirstScreen'
+//  export default FirstScreen ;
 
 
-//  import LogInScreen from './pages/LogInScreen'
-//  export default LogInScreen ;
+ import LogInScreen from './pages/LogInScreen'
+ export default LogInScreen ;
 
 
 // import ForgotPassword from './pages/ForgotPassword'
