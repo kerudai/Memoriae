@@ -20,7 +20,7 @@ container: {
     },
 });
 
-const Input = ({ placeholder }) => {
+const PassInput = ({ placeholder }) => {
 
   const [text, setText] = useState('');
       return (
@@ -28,14 +28,15 @@ const Input = ({ placeholder }) => {
         <TextInput style={[styles.container, styles.height]}
          placeholder={placeholder}
         onChangeText={text => setText(text)}
-        defaultValue={text}>
+        defaultValue={text}
+        secureTextEntry={true}>
         </TextInput>
         </View>
     );
   }
   
-  Input.defaultProps = {
+  PassInput.defaultProps = {
     placeholder: "Default Input",
   };
 
-export default Input;
+export default PassInput;
