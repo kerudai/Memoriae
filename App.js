@@ -10,20 +10,19 @@
 //  import NewPost from './pages/NewPost'
 //   export default NewPost ;
 
-// import FirstScreen from './pages/FirstScreen'
-//  export default FirstScreen ;
+import FirstScreen from './pages/FirstScreen'
+ export default FirstScreen ;
 
 
- import LogInScreen from './pages/LogInScreen'
- export default LogInScreen ;
+//  import LogInScreen from './pages/LogInScreen'
+//  export default LogInScreen ;
 
 
 // import ForgotPassword from './pages/ForgotPassword'
 // export default ForgotPassword ;
 
 
-import { NativeRouter, Route, Link } from "react-router-native";
-
+// import { NativeRouter, Route, Link } from "react-router-native";
 
 
 // import React from 'react';

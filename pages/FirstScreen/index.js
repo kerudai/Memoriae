@@ -5,7 +5,7 @@ import Button1 from '../../comps/Button';
 
 import { NativeRouter, Route, Link } from "react-router-native";
 
-import {View, StyleSheet, Text} from "react-native"
+import {View, StyleSheet, Text, ScrollView} from "react-native"
 import CenterView from "../../storybook/stories/CenterView";
 
 import ForgotPassword from '../ForgotPassword';
@@ -51,7 +51,7 @@ const FirstScreen = () => {
                         </View>
                     </Link>
                 </View>
-                <Link to="/ForgotPassword">
+                <Link underlayColor="#f0f4f7" to="/ForgotPassword">
                     <Text style={styles.text}>Forgot your password?</Text>
                 </Link>
                 <View style={styles.button}>
