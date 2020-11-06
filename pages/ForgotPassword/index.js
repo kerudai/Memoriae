@@ -7,8 +7,9 @@ import CloseIcon from '../../comps/CloseIcon';
 
 import { NativeRouter, Route, Link } from "react-router-native";
 
-import {View, StyleSheet, Text} from "react-native"
+import {View, StyleSheet, Text, ScrollView} from "react-native"
 import CenterView from "../../storybook/stories/CenterView";
+import FirstScreen from "../FirstScreen";
 
 const styles = StyleSheet.create({
     cont: {
@@ -55,6 +56,9 @@ const ForgotPasswordScreen = () => {
             <SmallLogo />
             </View>
             <View style={styles.close}>
+                      <Link to="/FirstScreen" >
+                <Text></Text>
+                </Link>
             <CloseIcon />
             </View>
             <View style={styles.inner}>
@@ -69,6 +73,7 @@ const ForgotPasswordScreen = () => {
                     <Button style={styles.button} text="Continue" />
                 </View>
             </View>
+            <Route path="/FirstScreen" component={FirstScreen} />
         </View>
         </NativeRouter>
     );

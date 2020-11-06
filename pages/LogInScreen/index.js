@@ -6,8 +6,11 @@ import Button1 from '../../comps/Button';
 import CloseIcon from '../../comps/CloseIcon';
 import PassInput from '../../comps/PassInput';
 
+import ForgotPasswordScreen from '../ForgotPassword';
+
 import {View, StyleSheet, Text} from "react-native"
 import CenterView from "../../storybook/stories/CenterView";
+import { NativeRouter, Link, Route } from "react-router-native";
 
 const styles = StyleSheet.create({
     cont: {
@@ -66,6 +69,7 @@ const styles = StyleSheet.create({
 
 const LogInScreen = () => {
     return (
+        <NativeRouter>
         <View style={styles.main}>
         <View style={[globalstyle.rows, styles.cont]}>
             <View style={styles.Mlogo}>
@@ -85,7 +89,9 @@ const LogInScreen = () => {
                     <Button1 style={styles.button} text="Log In" />
                 </View>
                 <View style={styles.textW}>
-                <Text style={styles.text}>Forgot your password?</Text>
+                    <Link to="/ForgotPasswordScreen">
+                        <Text style={styles.text}>Forgot your password?</Text>
+                    </Link>
                 <View style={styles.textLine}>
                 <Text style={styles.text}>don't have an acccount?</Text>
                 <Text style={styles.textBold}> Register</Text>
@@ -93,7 +99,9 @@ const LogInScreen = () => {
                 </View>
                 </View>
             </View>
+            <Route path="/ForgotPassword" component={ForgotPasswordScreen} />
         </View>
+        </NativeRouter>
     );
 };
 
