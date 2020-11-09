@@ -112,7 +112,7 @@ const NewPostScreen = () => {
                 </View>
                 <View style={styles.type}>
                     <View style={styles.input}>
-                        <Input text="start typing..." />
+                        <Input placeholder="start typing..." />
                     </View>
                     <View style={styles.button}>
                         <UploadMedia text="Add Pictures" />
