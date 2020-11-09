@@ -63,11 +63,11 @@ const ForgotPasswordScreen = () => {
             </View>
             <View style={styles.inner}>
                 <View style={styles.input}>
-                    <Input text="Email" />
+                    <Input placeholder="Email" />
                 </View>
                 <Text style={styles.text}>Or</Text>
                 <View style={styles.input}>
-                    <Input text="Account Number" />
+                    <Input placeholder="Account Number" />
                 </View>
                 <View style={styles.button}>
                     <Button style={styles.button} text="Continue" />
