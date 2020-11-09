@@ -2,11 +2,11 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Text } from 'react-native';
 import CenterView from './CenterView';
-import Button1 from '../../comps/Button';
+import Logo from '../../comps/Logo';
 
-storiesOf('Custom Button', module)
+storiesOf('Custom Logo', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add('My Custom Button', () => (
-    <Button1 />
+  .add('My Custom Logo', () => (
+    <Logo />
   ))
 
