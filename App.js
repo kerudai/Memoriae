@@ -7,8 +7,14 @@
  */
 
  //this imports pages seperately
- import NewPost from './pages/NewPost'
-  export default NewPost ;
+import Family_Profile from './pages/family_profile';
+export default Family_Profile;
+
+// import Staff_profile from './pages/staff_home';
+// export default Staff_profile;
+
+//  import NewPost from './pages/NewPost'
+//   export default NewPost ;
 
 // import FirstScreen from './pages/FirstScreen'
 //  export default FirstScreen ;

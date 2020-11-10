@@ -1,56 +1,64 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import styled from "styled-components/native";
+import { View, Text, StyleSheet, TouchableHighlight, Pressable } from "react-native";
 
-const TextSelect = styled.TouchableOpacity``;
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "column",
+    borderColor: "#EDEDED",
+    borderWidth: 1,
+    alignSelf: 'flex-start',
+  },
+  text: {
+
+  },
+  touch: {
+    padding: 15,
+    backgroundColor: "#EDEDED",
+  },
+});
 
 const MySortWindow = () => {
   return (
-    <View style={styles.container}>
-      <TextSelect
+    <View style={[styles.container]}>
+      <TouchableHighlight
+      style={styles.touch} 
+      underlayColor='#2A3858'
         onPress={() => {
           alert("Date Added (oldest) tapped!");
         }}
       >
         <Text style={styles.text}>Date Added (oldest)</Text>
-      </TextSelect>
-      <TextSelect
+      </TouchableHighlight>
+      <TouchableHighlight style={styles.touch}
         onPress={() => {
           alert("Date Added (newest) tapped!");
         }}
       >
-        <Text style={styles.text}>Date Added (newest)</Text>
-      </TextSelect>
-      <TextSelect
+        <Text style={styles.text} >Chronological (oldest) </Text>
+      </TouchableHighlight>
+      <TouchableHighlight 
+      style={styles.touch}
+      underlayColor='#2A3858'
         onPress={() => {
           alert("Chronological (oldest) tapped!");
         }}
       >
         <Text style={styles.text}>Chronological (oldest)</Text>
-      </TextSelect>
-      <TextSelect
+      </TouchableHighlight>
+      <TouchableHighlight 
+      style={styles.touch}
+      underlayColor='#2A3858'
         onPress={() => {
           alert("Chronological (newest) tapped!");
         }}
       >
         <Text style={styles.text}>Chronological (newest)</Text>
-      </TextSelect>
+      </TouchableHighlight>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "column",
-    border: "1px solid #EDEDED",
-    padding: 25,
-    width: "100vw",
-    backgroundColor: "#EDEDED"
-  },
-  text: {
-    padding: 40
-  }
-});
 
 MySortWindow.defaultProps = {};
 
