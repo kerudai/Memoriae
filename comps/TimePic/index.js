@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 
 MyTimePic.defaultProps = {
   caption: "Default",
-  imgurl: require("../../../Images/johnhawaii.png")
+  imgurl: require("../../Images/johnhawaii.png")
 };
 
 export default MyTimePic;

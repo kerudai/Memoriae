@@ -87,12 +87,10 @@ const Staff_profile = () => {
         <SortButton />
         <TimePic
           caption="John on his way to Hawaii for spring break during college."
-          imgurl={require("../../../Images/johnhawaii.png")}
         />
         <Story s_title="" s_date="July 30, 1966" s_telling="" s_like="" />
         <TimePic
           caption="John (third to the right in the back row) on his high school swim team."
-          imgurl={require("../../../Images/johnswim.png")}
         />
       </StoryBox>
     </View>
