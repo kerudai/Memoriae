@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableHighlight, Pressable } from "react-native";
 
+import {Dimensions} from 'react-native';
+import CenterView from "../../storybook/stories/CenterView";
+
+const deviceWidth = Dimensions.get('window').width;
+const deviceHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
     borderColor: "#EDEDED",
     borderWidth: 1,
-    alignSelf: 'flex-start',
+    width: deviceWidth,
   },
   text: {
 

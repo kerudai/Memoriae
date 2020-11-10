@@ -7,8 +7,14 @@
  */
 
  //this imports pages seperately
-import Family_Profile from './pages/family_profile';
-export default Family_Profile;
+// import Family_Profile from './pages/family_profile';
+// export default Family_Profile;
+
+// import SortPage from './pages/sortpage';
+// export default SortPage;
+
+import Staff_home from './pages/staff_home';
+export default Staff_home;
 
 // import Staff_profile from './pages/staff_home';
 // export default Staff_profile;
