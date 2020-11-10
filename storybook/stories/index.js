@@ -11,5 +11,6 @@ import './MyLogo.stories';
 import './Pages.stories';
 import './MyTimePic.stories';
 import './MySortWindow.stories';
-import './MyAvatar.stories';
+// import './MyAvatar.stories';
 import './MySort.stories';
+import './MyStory.stories';
