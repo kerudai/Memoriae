@@ -1,7 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const MyStory = ({ s_title, s_date, s_telling, s_like }) => {
+import {Dimensions} from 'react-native';
+
+const deviceWidth = Dimensions.get('window').width*0.95;
+
+const MyStory = ({ s_title, s_date, s_telling}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.s_title} s_title={s_title}>
@@ -13,43 +17,43 @@ const MyStory = ({ s_title, s_date, s_telling, s_like }) => {
       <Text style={styles.s_telling} s_telling={s_telling}>
         {s_telling}
       </Text>
-      <Text style={styles.s_like} s_like={s_like}>
-        {s_like}
-      </Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "column"
+    justifyContent: 'flex-start',
+    padding: 10,
+    width: deviceWidth,
   },
   s_title: {
     fontSize: 20,
-    fontWeight: 425,
-    position: "relative",
-    bottom: 10
+    fontWeight: "bold",
+    marginBottom: 10,
+    // position: "relative",
+    // bottom: 10
   },
   s_date: {
     fontSize: 10,
-    position: "relative",
-    top: 0,
-    left: 10,
-    bottom: 20
+    marginBottom: 5,
+    // position: "relative",
+    // top: 0,
+    // left: 10,
+    // bottom: 20
   },
   s_telling: {
-    position: "relative",
-    top: 5,
-    left: 25
+    // position: "relative",
+    // top: 5,
+    // left: 25,
+    padding: 10,
   },
-  s_like: {}
 });
 
 MyStory.defaultProps = {
   s_title: "Story Title",
-  s_date: "Date of Story",
-  s_telling: "Story",
-  s_like: "Like"
+  s_date: "story date",
+  s_telling: "story content",
 };
 
 export default MyStory;

@@ -1,78 +1,44 @@
-// import React from "react";
-// import { View, StyleSheet, Image, Avatar } from "react-native";
-
-// const styles = StyleSheet.create({
-//   container: {
-//     // display: "flex",
-//     width: 25,
-//     height: 25,
-//     borderRadius: 80
-//   },
-//   image: {
-//     width: "100%",
-//     height: "100%"
-//   },
-// });
-
-
-// const MyAvatar = ({ imgurl }) => {
-  // var dimstyle = { width: dim, height: dim };
-  // var imgstyle = { borderRadius: dim / 2 };
-//   // var dimstyle = null;
-//   // if(dim){
-//   //   dimstyle = {width:dim, height:dim};
-//   // }
-
-//   return (
-//     <View style={[styles.container]}>
-//       {/* <Image
-//         style={[styles.image, imgstyle]}
-//         source={imgurl}
-//         resizeMode={"cover"}
-//       ></Image> */}
-//       <Avatar style={[styles.image]} source={imgurl}> </Avatar>
-//     </View>
-//   );
-// }
-
-// MyAvatar.defaultProps = {
-//   // dim: 50,
-//   // dimstyle: {width:dim, height:dim},
-//   imgurl: require("../../Images/john.png")
-// };
-
-// export default MyAvatar;
-
-import React from 'react';
-import {View, Image, StyleSheet} from "react-native";
-import CenterView from '../../storybook/stories/CenterView';
+import React from "react";
+import { View, StyleSheet, Image } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
     // display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+    borderRadius: 80,
   },
   image: {
-
+    width: "100%",
+    height: "100%"
   },
 });
 
 
-const MyAvatar = ({ imgurl, dim, odim }) => {
+const MyAvatar = ({ imgurl, dim }) => {
+    // var dimstyle = { width: dim, height: dim };
+    // var imgstyle = { borderRadius: dim / 2 };
+  // var dimstyle = null;
+  // if(dim){
+  //   dimstyle = {width:dim, height:dim};
+  // }
+
   return (
-    <View style={styles.container}  height={odim} width={odim} >
-      <Image resizeMethod="auto" style={styles.image} source={imgurl} height={dim} width={dim} borderRadius={dim*10}></Image>
+    // <View style={[styles.container, dimstyle]}>
+    <View style={styles.container} width={dim} height={dim}>
+      <Image
+        // style={[styles.image, imgstyle]}
+        style={styles.image}
+        borderRadius={dim/2}
+        source={imgurl}
+        resizeMode={"cover"}
+      ></Image>
     </View>
   );
 }
 
 MyAvatar.defaultProps = {
   imgurl: require("../../Images/john.png"),
-  dim: 40,
-  odim: 30,
-}
-
-
+  dim: 90,
+};
 
 export default MyAvatar;
+
