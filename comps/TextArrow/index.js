@@ -1,24 +1,29 @@
 import React from "react";
 import { View, Image, StyleSheet, Text } from "react-native";
 
+
+import {Dimensions} from 'react-native';
+
+const deviceWidth = Dimensions.get('window').width*0.85;
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent:"space-between",
-    marginLeft:25,
-    marginRight:25,
-    marginBottom:15 
+    width: deviceWidth,
+    padding: 10
   },
   stretch: {
     minWidth: 15,
     minHeight: 20,
-    resizeMode: "stretch",
     position: "relative",
-    transform: "scaleX(-1)",
+    resizeMode: 'stretch',
+    transform: [{ scaleX: 1 }],
+    transform: [{ rotate: "180deg" }]
     
   },
   text: {
-    color: "#000000",
+    color: '#000000',
     fontSize: 21,
     
   }
