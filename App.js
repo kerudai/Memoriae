@@ -13,8 +13,18 @@
 // import SortPage from './pages/sortpage';
 // export default SortPage;
 
-import Staff_home from './pages/staff_home';
-export default Staff_home;
+// import Staff_home from './pages/staff_home';
+// export default Staff_home;
+
+// import AccountSettings from './pages/AccountSettings';
+// export default AccountSettings;
+
+
+// import Settings from './pages/Settings';
+// export default Settings;
+
+import Tutorial from './pages/Tutorial';
+export default Tutorial;
 
 // import Staff_profile from './pages/staff_home';
 // export default Staff_profile;

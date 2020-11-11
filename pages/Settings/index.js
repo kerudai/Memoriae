@@ -7,31 +7,38 @@ import Profile from "../../comps/Profile"
 import { View, StyleSheet, Text } from "react-native";
 import CenterView from "../../storybook/stories/CenterView";
 
+import {Dimensions} from 'react-native';
+
+const deviceHeightN = Dimensions.get('window').height*0.95;
+const deviceHeightT = Dimensions.get('window').height*0.13;
+const deviceWidth = Dimensions.get('window').width*0.80;
+
 const styles = StyleSheet.create({
   cont: {
-    backgroundColor: "#f5f5f5",
-    flex: 1
+    backgroundColor: '#f5f5f5',
+    flex: 1,
+    alignItems: 'center'
   },
   text: {
-    color: "#1F1F1F",
+    color: '#1F1F1F',
     fontSize: 20,
     marginLeft: 30,
     marginTop: 10
   },
   continner: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
     margin: 20,
     borderRadius: 10,
-    height: "95vh"
+    height: deviceHeightN,
   },
   bottom: {
-    bottom: "13vh",
-    width: "80vw",
-    margin: "auto"
+    bottom: deviceHeightT,
+    width: deviceWidth,
+    margin: "auto",
   },
 bar: {
-  marginTop: 30
-}
+  marginTop: 30,
+},
 });
 
 const Settings = () => {
