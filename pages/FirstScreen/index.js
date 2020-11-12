@@ -3,19 +3,17 @@ import globalstyle from "../globalstyle";
 import Logo from '../../comps/Logo';
 import Button1 from '../../comps/Button';
 
-import { NativeRouter, Route, Link } from "react-router-native";
+import { NativeRouter, Route, Link, useHistory } from "react-router-native";
 
 import {View, StyleSheet, Text, ScrollView} from "react-native"
-import CenterView from "../../storybook/stories/CenterView";
+import ForgotPasswordScreen from "../ForgotPassword";
 
-import ForgotPassword from '../ForgotPassword';
-import LogInScreen from '../LogInScreen';
 
 const styles = StyleSheet.create({
     cont: {
         backgroundColor: "white",
         alignItems: "center",
-        flex: 1,
+        // height: deviceHeight,
     },
     Mlogo: {
         marginTop: 140,
@@ -37,31 +35,41 @@ const styles = StyleSheet.create({
 });
 
 const FirstScreen = () => {
+
+    //routing with useHistory
+    const history = useHistory();
+
+    const HandleLogin = async()=>{
+        //do async stuff
+
+        //instead of <Link> route after completing script like backend communication
+        history.push("/login")
+    }
+    const HandleRegister = async()=>{
+        //do async stuff
+
+        //instead of <Link> route after completing script like backend communication
+        history.push("/familyprofile")
+    }
     return (
-        <NativeRouter>
         <View style={[globalstyle.rows, styles.cont]}>
             <View style={styles.Mlogo}>
             <Logo />
             </View>
             <View style={styles.inner}>
                 <View style={styles.button}>
-                    <Link to="/LogInScreen">
-                        <View>
-                        <Button1 style={styles.button} text="Log In" />
-                        </View>
-                    </Link>
+                    <View>
+                            <Button1 onPress={HandleLogin} style={styles.button} text="Log In" />
+                    </View>
                 </View>
-                <Link underlayColor="#f0f4f7" to="/ForgotPassword">
+                <Link underlayColor="#f0f4f7" to="/forgotpassword">
                     <Text style={styles.text}>Forgot your password?</Text>
                 </Link>
                 <View style={styles.button}>
-                <Button1 style={styles.button} text="Register" />
+                <Button1 onPress={HandleRegister}  style={styles.button} text="Register" />
                 </View>
-                <Route path="/ForgotPassword" component={ForgotPassword} />
-                <Route path="/LogInScreen" component={LogInScreen} />
             </View>
         </View>
-        </NativeRouter>
     );
 };
 

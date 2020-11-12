@@ -1,21 +1,25 @@
 import React from "react";
 import globalstyle from "../globalstyle";
 import Input from '../../comps/Input';
-import SmallLogo from '../../comps/SmallLogo';
 import UploadMedia from '../../comps/UploadMedia';
 import CloseIcon from '../../comps/CloseIcon';
 import StoryBox from '../../comps/StoryBox';
-import { Dimensions } from 'react-native';
 
+import {Dimensions} from 'react-native';
+
+const deviceWidth = Dimensions.get('window').width*1.3;
+const deviceWidthF = Dimensions.get('window').width;
+const deviceWidthH = Dimensions.get('window').width*0.85;
+
+
+import { NativeRouter, Link, useHistory } from "react-router-native";
 import {View, StyleSheet, Text} from "react-native"
-import CenterView from "../../storybook/stories/CenterView";
-import { color } from "@storybook/addon-knobs";
 
 const styles = StyleSheet.create({
     cont: {
         backgroundColor: "white",
         alignItems: "center",
-        flex: 1,
+        // flex: 1,
         margin: 15,
         borderRadius: 5,
         // justifyContent: "center"
@@ -27,7 +31,7 @@ const styles = StyleSheet.create({
     header: {
        flexDirection: "row",
        justifyContent: "space-evenly",
-       width: 500,
+       width: deviceWidth,
        alignItems: "baseline",
        marginTop: 10,
        marginBottom: 30,
@@ -60,68 +64,130 @@ const styles = StyleSheet.create({
         bottom: 70,
         width: 320,
         maxHeight: 50,
-
+        zIndex: 1,
     },
     date: {
         marginTop: 40,
     },
     type: {
         height: 480,
-        width: 340,
+        width: deviceWidth,
         alignItems: "center",
+        zIndex: 5,
         // justifyContent: "center",
         // borderRadius: 15,
         // borderColor: "black",
         // borderWidth: 0.5,
     },
     input: {
-        width: 340,
+        width: deviceWidthH,
         height: 490,
         borderRadius: 15,
         marginTop: 40,
+        zIndex: 10,
     },
     close: {
-        width: 5,
-        height: 5,
-        // marginBottom: 25,
+        alignSelf: 'auto',
+        backgroundColor: '#FAD',
+        // marginBottom: 25,r
     },
 });
 
 const NewPostScreen = () => {
 
-    const windowHeight = Dimensions.get('window').height;
+
+    const history = useHistory();
+
+    const HandleBack = async()=>{
+        //do async stuff
+
+        //instead of <Link> route after completing script like backend communication
+        history.push("/familyprofile")
+    }
 
     return (
         <View style={styles.main}>
-        <View style={[globalstyle.rows, styles.cont]}>
-            <View style={styles.header}>
-                <View style={styles.close}>
-                    <CloseIcon />
-                </View>
-                <Text style={styles.title}>New Post</Text>
-                <Text style={styles.NextT}>Next</Text>
-            </View>
-            <View style={styles.inner}>
-                <View styles={styles.h1}>
-                    <Text style={styles.text}>Story Title</Text>
-                    <View style={styles.line}></View>
-                </View>
-                <View style={styles.date}>
-                    <Text style={styles.text}>Story Title</Text>
-                    <View style={styles.line}></View>
-                </View>
-                <View style={styles.type}>
-                    <View style={styles.input}>
-                        <Input placeholder="start typing..." />
+            <View style={[globalstyle.rows, styles.cont]}>
+                <View style={styles.header}>
+                    <View style={styles.close}>
+                    <CloseIcon onPress={HandleBack} />
                     </View>
-                    <View style={styles.button}>
-                        <UploadMedia text="Add Pictures" />
+                    <Text style={styles.title}>New Post</Text>
+                    <Text style={styles.NextT}>Next</Text>
+                </View>
+                <View style={styles.inner}>
+                    <View styles={styles.h1}>
+                        <Text style={styles.text}>Story Title</Text>
+                        <View style={styles.line} />
+                    </View>
+                    <View style={styles.date}>
+                        <Text style={styles.text}>Story Title</Text>
+                        <View style={styles.line} />
+                    </View>
+                    <View style={styles.type}>
+                        <View style={styles.input}>
+                            <Input placeholder="start typing..." />
+                        </View>
+                        <View style={styles.button} >
+                            <UploadMedia text="Add Pictures" />
+                        </View>
                     </View>
                 </View>
-            </View>
             </View>
         </View>
     );
 };
 
 export default NewPostScreen;
+
+// import React from 'react';
+// import Input from '../../comps/Input';
+// import InputTitle from '../../comps/InputTitle';
+// import UploadMedia from '../../comps/UploadMedia';
+// import {View, StyleSheet, Text} from "react-native";
+
+
+// import {Dimensions} from 'react-native';
+
+// const deviceHeight = Dimensions.get('window').height*0.80;
+// const deviceWidth = Dimensions.get('window').width*0.80;
+
+// const styles = StyleSheet.create({
+//     container: {
+//     },
+//     mediabutton: {
+//         position: 'relative',
+//         // top: deviceHeight,
+//         width: deviceWidth,
+//        },
+//     inputBox: {
+//         alignItems: 'center',
+//         height: deviceHeight,
+//         width: deviceWidth,
+//         justifyContent: "space-between",
+//        },
+//     storyinput: {
+//         height: 400,
+//     },
+//     });
+
+
+
+// const NewPostScreen = () => {
+//     return (
+//         <View style={styles.container}>
+//             <InputTitle placeholder="Story Title" />
+//             <InputTitle placeholder="Date of Story"/>
+//             <View style={styles.inputBox}>
+//                 <View style={styles.storyinput}>
+//                     <InputTitle />
+//                 </View>
+//                 <View style={styles.mediabutton}>
+//                     <UploadMedia />
+//                 </View>
+//             </View>
+//         </View>
+//     )
+// }
+
+// export default NewPostScreen;

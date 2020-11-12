@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image} from "react-native";
 import {Dimensions} from 'react-native';
+import { NativeRouter, Link, useHistory } from "react-router-native";
 
 const deviceWidth = Dimensions.get('window').width
 
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     fontSize:32,
   },
   img: {
-    left:20,
+    left:10,
     position:'absolute',
     height:24,
     width:22,
@@ -31,9 +32,12 @@ const styles = StyleSheet.create({
 const Header = () => {
   return (
       <View style={styles.container}>
-        <Image style={styles.img} source={require('../../Images/profileicon.png')} />
+        <View  style={styles.img}>
+          <Link to="/settings">
+           <Image source={require('../../Images/profileicon.png')} />
+           </Link>
+        </View>
         <Text style={styles.text}>Memoriae</Text>
-        
       </View>
   );
 }

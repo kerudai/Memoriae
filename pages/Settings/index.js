@@ -7,6 +7,8 @@ import Profile from "../../comps/Profile"
 import { View, StyleSheet, Text } from "react-native";
 import CenterView from "../../storybook/stories/CenterView";
 
+import { NativeRouter, Route, Link, useHistory } from "react-router-native";
+
 import {Dimensions} from 'react-native';
 
 const deviceHeightN = Dimensions.get('window').height*0.95;
@@ -42,12 +44,15 @@ bar: {
 });
 
 const Settings = () => {
+
   return (
     <View style={[globalstyle.rows, styles.cont]}>
       <View style={styles.continner}>
         <BackMiddleNav text=" " />
           <View style={styles.bar}>
+            <View>
             <Profile text="John Moon"/>
+            </View>
             <TextArrow text="Account"/>
             <TextArrow text="About"/>
             <TextArrow text="Help"/>

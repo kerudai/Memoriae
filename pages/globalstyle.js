@@ -1,12 +1,11 @@
 import { StyleSheet } from "react-native";
 
+import {Dimensions} from 'react-native';
+
+const deviceHeight = Dimensions.get('window').height;
+
 export default StyleSheet.create({
   rows: {
-    margin: 0,
-    backgroundColor: "#F5F5F5",
+   height: deviceHeight,
   },
-  Header: {
-    position: "relative",
-    top: 10
-  }
 });

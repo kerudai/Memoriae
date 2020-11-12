@@ -17,11 +17,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const Button1 = ({ text }) => {
+const Button1 = ({ text, onPress }) => {
   return (
       <View style={styles.container}>
         <TouchableOpacity
             style={styles.loginScreenButton}
+            onPress={onPress}
              underlayColor='#fff'>
             <Text style={styles.text} >{text}</Text>
         </TouchableOpacity>
@@ -30,7 +31,8 @@ const Button1 = ({ text }) => {
 }
 
 Button1.defaultProps = {
-  text: "Default button"
+  text: "Default button",
+  onPress:()=>{}
 };
 
 export default Button1;
