@@ -22,7 +22,7 @@
 //   }
 // });
 
-// const Family_Profile = () => {
+// const FamilyProfile = () => {
 //   return (
 //     <View style={[globalstyle.rows, styles.homecont]}>
 //       <Header />
@@ -98,7 +98,7 @@
 //   );
 // };
 
-// export default Family_Profile;
+// export default FamilyProfile;
 
 import React from "react";
 import Header from '../../comps/Header';
@@ -112,6 +112,8 @@ import HrDivider from '../../comps/Divider';
 import VrDivider from '../../comps/VrDivider';
 import TimePic from '../../comps/TimePic';
 import SortButton from '../../comps/SortButton';
+
+import { NativeRouter, Link, useHistory } from "react-router-native";
 
 import {View, StyleSheet, Text, ScrollView} from "react-native";
 import {Dimensions} from 'react-native';
@@ -132,7 +134,7 @@ const styles = StyleSheet.create({
   media: {
     position: "absolute",
     width: deviceWidthF,
-    bottom: 40,
+    bottom: 80,
   },
   timeline: {
     width: deviceWidthP,
@@ -147,7 +149,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const Family_Profile = () => {
+const FamilyProfile = () => {
 
   return (
     <View style={styles.homecont}>
@@ -192,14 +194,12 @@ const Family_Profile = () => {
        </StoryBox>
         </ScrollView>
         <View style={styles.media} >
+          <Link to="/upload">
             <UploadMedia />
+          </Link>
         </View>
     </View>
   )
 }
 
-Family_Profile.defaultProps = {
-
-};
-
-export default Family_Profile;
+export default FamilyProfile;

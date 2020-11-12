@@ -5,7 +5,6 @@
  * @format
  * @flow strict-local
  */
-
  //this imports pages seperately
 // import Family_Profile from './pages/family_profile';
 // export default Family_Profile;
@@ -16,6 +15,10 @@
 // import Staff_home from './pages/staff_home';
 // export default Staff_home;
 
+
+// import LogInScreen from './pages/LogIn';
+// export default LogInScreen;
+
 // import AccountSettings from './pages/AccountSettings';
 // export default AccountSettings;
 
@@ -23,8 +26,8 @@
 // import Settings from './pages/Settings';
 // export default Settings;
 
-import Tutorial from './pages/Tutorial';
-export default Tutorial;
+// import Tutorial from './pages/Tutorial';
+// export default Tutorial;
 
 // import Staff_profile from './pages/staff_home';
 // export default Staff_profile;
@@ -32,8 +35,50 @@ export default Tutorial;
 //  import NewPost from './pages/NewPost'
 //   export default NewPost ;
 
-// import FirstScreen from './pages/FirstScreen'
-//  export default FirstScreen ;
+
+
+import React from "react";
+import {View, StyleSheet} from 'react-native';
+import { NativeRouter, Route, Link } from "react-router-native";
+import {Dimensions} from 'react-native';
+
+const deviceHeight = Dimensions.get('window').height;
+
+
+
+import FirstScreen from './pages/FirstScreen'
+import ForgotPassword from './pages/ForgotPassword'
+import LogInScreen from './pages/LogIn'
+import Staff_home from './pages/staff_home';
+import StaffProfile from './pages/staff_profile';
+import NewPost from './pages/NewPost';
+import NewPostScreen from "./pages/NewPost";
+import FamilyProfile from './pages/family_profile';
+import Settings from './pages/Settings';
+
+const styles = StyleSheet.create({
+    maintcont: {
+        height: deviceHeight,
+    },
+  });
+
+const App = () => {
+    return <NativeRouter>
+        <View style={styles.maincont}>
+            <Route exact path="/" component={FirstScreen} />
+            <Route path="/forgotpassword" component={ForgotPassword} />
+            <Route path="/login" component={LogInScreen} />
+            <Route path="/staffhome" component={Staff_home} />
+            <Route path="/staffprofile" component={StaffProfile} />
+            <Route path="/upload" component={NewPostScreen} />
+            <Route path="/familyprofile" component={FamilyProfile} />
+            <Route path="/settings" component={Settings} />
+        </View>
+        </NativeRouter>
+    
+};
+
+export default App;
 
 
 //  import LogInScreen from './pages/LogInScreen'

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, StyleSheet, Text } from 'react-native';
+import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,15 +13,13 @@ const styles = StyleSheet.create({
 });
 
 const CloseIcon = ({dim}) => {
-  var dimstyle = { width: dim, height: dim};
 
   return (
     <View style={[styles.container]}>
-      <Image
-        style={styles.stretch}
-        source={require('../../Images/close.png')}
-        resizeMode={"cover"}
-      />
+          <Image
+          style={styles.stretch}
+          source={require('../../Images/close.png')}
+          resizeMode={"cover"} />
     </View>
   );
 }
