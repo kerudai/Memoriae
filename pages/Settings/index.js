@@ -22,12 +22,16 @@ const styles = StyleSheet.create({
   userProfile: {
    width: deviceWidth,
    height: 200,
-   backgroundColor: '#DAD',
+  //  backgroundColor: '#DAD',
    height: deviceHeightT,
    marginTop: 30,
   },
   nextRoute: {
     marginTop: 20,
+  },
+  bottom: {
+    position: 'relative',
+    bottom: -300,
   }
 });
 
@@ -41,6 +45,13 @@ const Settings = () => {
       //instead of <Link> route after completing script like backend communication
       history.push("/familyprofile")
   }
+
+  const HandleLogOut = async()=>{
+    //do async stuff
+
+    //instead of <Link> route after completing script like backend communication
+    history.push("/login")
+}
 
   return (
     // <Link to="/accountsettings" >
@@ -68,23 +79,11 @@ const Settings = () => {
           </Link>
         </View>
       </View>
+      <View style={styles.bottom}>
+      <Button1 onPress={HandleLogOut} text="Log Out" />
+      </View>
     </View>
-    // <View style={[globalstyle.rows, styles.cont]}>
-    //   <View style={styles.continner}>
-    //     <BackMiddleNav text=" " />
-    //       <View style={styles.bar}>
-    //         <View>
-    //         <Profile text="John Moon"/>
-    //         </View>
-    //         <TextArrow text="Account"/>
-    //         <TextArrow text="About"/>
-    //         <TextArrow text="Help"/>
-    //       </View>
-    //   </View>
-    //   <View style={styles.bottom}>
-    //     <Button text="Log Out" />
-    //   </View>
-    // </View>
+    
   );
 };
 
