@@ -9,6 +9,8 @@ import SmallButton from "../../comps/SmallButton";
 
 import {Dimensions} from 'react-native';
 
+import { NativeRouter, Route, Link, useHistory } from "react-router-native";
+
 const deviceHeightN = Dimensions.get('window').height*0.95;
 const deviceHeightF = Dimensions.get('window').height*0.65;
 const deviceWidth = Dimensions.get('window').width*0.95;
@@ -39,11 +41,22 @@ const styles = StyleSheet.create({
 });
 
 const Tutorial = () => {
+
+
+  const history = useHistory();
+
+  const HandleBack = async()=>{
+      //do async stuff
+
+      //instead of <Link> route after completing script like backend communication
+      history.push("/settings")
+  }
+
   return (
     <View style={[globalstyle.rows, styles.cont]}>
       <StoryBox>
         <View style={styles.head}>
-      <BackMiddleNav text="Help" />
+      <BackMiddleNav onPress={HandleBack} text="Help" />
       </View>
       <View style={styles.box}>
         <TutorialText text='Tutorial' desc='description' />

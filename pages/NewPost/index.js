@@ -8,6 +8,7 @@ import TextName from '../../comps/TextName';
 import InputTitle from '../../comps/InputTitle';
 import HrDivider from '../../comps/Divider';
 
+
 import {Dimensions} from 'react-native';
 
 const deviceWidthButton = Dimensions.get('window').width*0.85;
@@ -15,6 +16,9 @@ const deviceWidthF = Dimensions.get('window').width;
 const deviceWidthH = Dimensions.get('window').width*0.90;
 const deviceHeightP = Dimensions.get('window').height*0.70;
 const deviceHeightT = Dimensions.get('window').height*0.10;
+
+import { PermissionsAndroid, Platform } from "react-native";
+import CameraRoll from "@react-native-community/cameraroll";
 
 
 import { NativeRouter, Link, useHistory } from "react-router-native";
@@ -63,6 +67,27 @@ const styles = StyleSheet.create({
 })
 
 const NewPostScreen = () => {
+
+    // async function hasAndroidPermission() {
+    //     const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+      
+    //     const hasPermission = await PermissionsAndroid.check(permission);
+    //     if (hasPermission) {
+    //       return true;
+    //     }
+      
+    //     const status = await PermissionsAndroid.request(permission);
+    //     return status === 'granted';
+    //   }
+      
+    //   async function openCameraRoll() {
+    //     if (Platform.OS === "android" && !(await hasAndroidPermission())) {
+    //       return;
+    //     }
+      
+    //     CameraRoll.getAlbums(params, {All })
+    //   };
+      
 
     return (
         <View style={styles.mcont}>
