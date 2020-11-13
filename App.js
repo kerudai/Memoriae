@@ -37,6 +37,8 @@
 
 
 
+
+
 import React from "react";
 import {View, StyleSheet} from 'react-native';
 import { NativeRouter, Route, Link } from "react-router-native";
@@ -55,6 +57,8 @@ import NewPost from './pages/NewPost';
 import NewPostScreen from "./pages/NewPost";
 import FamilyProfile from './pages/family_profile';
 import Settings from './pages/Settings';
+import AccountSettings from './pages/AccountSettings';
+import Tutorial from './pages/Tutorial';
 
 const styles = StyleSheet.create({
     maintcont: {
@@ -73,6 +77,8 @@ const App = () => {
             <Route path="/upload" component={NewPostScreen} />
             <Route path="/familyprofile" component={FamilyProfile} />
             <Route path="/settings" component={Settings} />
+            <Route path="/accountsettings" component={AccountSettings} />
+            <Route path="/tutorial" component={Tutorial} />
         </View>
         </NativeRouter>
     

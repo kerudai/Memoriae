@@ -16,11 +16,12 @@ const styles = StyleSheet.create({
         },
 });
 
-const BackNav = ({text}) => {
+const BackNav = ({text, onPress}) => {
   return (
     <View style={styles.container}>
       <Image
         style={styles.stretch}
+        onPress={onPress}
         source={require('../../Images/backnav.png')}
       />
       <Text style={styles.text}>{text}</Text>
@@ -30,7 +31,8 @@ const BackNav = ({text}) => {
 
   
 BackNav.defaultProps = {
-    text: "Default Name"
+    text: "Default Name",
+    onPress:()=>{}
 }
 
 export default BackNav;
