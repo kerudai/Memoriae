@@ -68,7 +68,9 @@ const Settings = () => {
       </View>
       <View>
         <View style={styles.nextRoute}>
+          <Link to="/accountsettings">
           <TextArrow text="Account" />
+          </Link>
         </View>
         <View>
           <TextArrow text="About" />
