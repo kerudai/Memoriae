@@ -8,7 +8,7 @@ import Avatar from '../../comps/Avatar';
 import Story from '../../comps/Story';
 import TextStatus from '../../comps/TextStatus';
 import TextGreeting from '../../comps/TextGreeting';
-import { createApi, createAuthApi } from '../../clientapi';
+import { createApi, authApi, createAuthApi } from '../../clientapi';
 import Button1 from '../../comps/Button';
 
 import {Dimensions} from 'react-native';
@@ -47,22 +47,25 @@ const styles = StyleSheet.create({
 
 const Staff_home = () => {
 
-  const [username, setName] = useState(null);
 
 
   const HandleProfile = async () => {
+
+
     console.log("clicked")
-  
+
     let resp
     const api = createApi()
-    resp = await api.profile()
-    console.log(resp.data);
-    setName(resp.username);
-  
+    resp = await api.register({username, password, role, first_name, last_name})
+    console.log(resp.data)
+    console.log(Resp.data.token)
     const { token } = resp.data
     const authApi = createAuthApi(token)
     resp = await authApi.getUserProfile()
     console.log(resp.data)
+    console.log(resp.data.username)
+
+  
     // do async stuff
   
     //instead of <Link> route after completing script like backend communication
@@ -76,7 +79,7 @@ const Staff_home = () => {
           <Button1 onPress={HandleProfile}  />
           <View style={styles.input}>
             <Input style={styles.input1} placeholder="Find a patient..." />
-            <TextGreeting name={username} />
+            <TextGreeting name="Amy" />
             </View>
           </StoryBox>          
           <View style={styles.scont}>
