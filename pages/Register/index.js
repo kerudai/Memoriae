@@ -79,6 +79,8 @@ const styles = StyleSheet.create({
         },
 });
 
+
+
 const RegisterPage = ({}) => {
 
 
@@ -93,13 +95,21 @@ const RegisterPage = ({}) => {
     const [last_name, setLastName] = useState("");
     const [password, setPassword] = useState("");
     const role = checkedStaff ? 'staff' : 'family_member';
+    GLOBAL.USERNAME = username;
 
     const onPress = async () => {
         console.log("clicked");
 
         let resp
         const api = createApi()
-        resp = await api.register(username, password, role)
+        resp = await api.register({
+            username: username,
+            password: password,
+            role: role,
+            first_name: first_name,
+            last_name: last_name,
+        })
+        console.log(resp.data)
 
         const { token } = resp.data
         const authApi = createAuthApi(token)

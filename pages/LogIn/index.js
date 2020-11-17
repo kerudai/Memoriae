@@ -97,8 +97,12 @@ const LogInScreen = ({}) => {
 
         let resp
         const api = createApi()
-        resp = await api.login(username, password, role, last_name, first_name)
-        console.log(resp.data)
+resp = await api.login({
+	username: username,
+	password: password,
+	role: role,
+})
+console.log(resp.data)
 
         const { token } = resp.data
         const authApi = createAuthApi(token)

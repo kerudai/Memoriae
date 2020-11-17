@@ -9,8 +9,9 @@ export const createApi = () => {
 
   return {
     // role is either 'family_member' or 'staff'
-    register: (username, password, role) => api.post('/api/register', { username, password, role }).then(res => res).catch(err => err),
-    login: (username, password, role) => api.post('/api/login', { username, password, role }).then(res => res).catch(err => err)
+    // userProfile is the object: { username, password, role, first_name, last_name }
+    register: (userProfile) => api.post('/api/register', userProfile).then(res => res).catch(err => err),
+    login: (userProfile) => api.post('/api/login', userProfile).then(res => res).catch(err => err)
   }
 }
 
