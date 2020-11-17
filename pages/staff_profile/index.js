@@ -25,6 +25,7 @@ const deviceWidthS = Dimensions.get('window').width*0.60;
 const deviceHeightF = Dimensions.get('window').height;
 const deviceWidthF = Dimensions.get('window').width;
 
+
 const styles = StyleSheet.create({
   homecont: {
     flexDirection: "column",
@@ -65,8 +66,6 @@ const styles = StyleSheet.create({
 
   },
 })
-
-
 
 const StaffProfile= () => {
 

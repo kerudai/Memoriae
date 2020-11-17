@@ -99,8 +99,7 @@ const RegisterPage = ({}) => {
 
         let resp
         const api = createApi()
-        resp = await api.register(username, password, role, first_name, last_name)
-        console.log(resp.data)
+        resp = await api.register(username, password, role)
 
         const { token } = resp.data
         const authApi = createAuthApi(token)
