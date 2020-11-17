@@ -49,7 +49,7 @@ const FirstScreen = () => {
         //do async stuff
 
         //instead of <Link> route after completing script like backend communication
-        history.push("/login")
+        history.push("/register")
     }
     return (
         <View style={[globalstyle.rows, styles.cont]}>

@@ -11,12 +11,14 @@ import VrDivider from '../../comps/VrDivider';
 import TimePic from '../../comps/TimePic';
 import SortButton from '../../comps/SortButton';
 import SortWindow from '../../comps/SortWindow';
+import axios from 'axios';
 
 
 import { NativeRouter, Link, useHistory } from "react-router-native";
 
 import {View, StyleSheet, Text, ScrollView, Image, Button, BlurView, TouchableOpacity} from "react-native";
 import {Dimensions} from 'react-native';
+import Axios from "axios";
 
 const deviceWidthP = Dimensions.get('window').width*0.90;
 const deviceWidthS = Dimensions.get('window').width*0.60;
@@ -63,6 +65,8 @@ const styles = StyleSheet.create({
 
   },
 })
+
+
 
 const StaffProfile= () => {
 

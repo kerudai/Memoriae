@@ -20,7 +20,7 @@ container: {
     },
 });
 
-const Input = ({ placeholder }) => {
+const Input = ({ placeholder, textinput }) => {
 
   const [text, setText] = useState('');
       return (
