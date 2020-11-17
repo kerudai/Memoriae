@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     inner: {
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 250,
+        marginTop: 150,
     },
     text: {
         color: "#1F1F1F",
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         },
 });
 
-const LogInScreen = ({}) => {
+const RegisterPage = ({}) => {
 
 
     // const Insert = props => {
@@ -89,20 +89,17 @@ const LogInScreen = ({}) => {
     const history = useHistory();
     const [checkedStaff, toggleCheckedStaff] = useState(false);
     const [username, setUsername] = useState("");
+    const [first_name, setFirstName] = useState("");
+    const [last_name, setLastName] = useState("");
     const [password, setPassword] = useState("");
-    const [role] = checkedStaff ? 'staff' : 'family_member';
+    const role = checkedStaff ? 'staff' : 'family_member';
 
     const onPress = async () => {
         console.log("clicked");
 
         let resp
         const api = createApi()
-        resp = await api.login(username, password, role, {
-            username: username,
-            password: password,
-            role: role,
-        }
-            )
+        resp = await api.register(username, password, role, first_name, last_name)
         console.log(resp.data)
 
         const { token } = resp.data
@@ -118,7 +115,7 @@ const LogInScreen = ({}) => {
         //do async stuff
 
         //instead of <Link> route after completing script like backend communication
-        history.push("/familyprofile")
+        history.push("/staffhome")
     }
     return (
         <View style={styles.main}>
@@ -147,6 +144,20 @@ const LogInScreen = ({}) => {
                         placeholder="Password"
                          />
                     </View>
+                    <View style={[styles.input, styles.biginput]}>
+                        <TextInput style={styles.containerinput}
+                        onChangeText={(text)=>{setFirstName(text) 
+                        }}
+                        placeholder="First Name"
+                         />
+                    </View>
+                    <View style={[styles.input, styles.biginput]}>
+                        <TextInput style={styles.containerinput}
+                        onChangeText={(text)=>{setLastName(text) 
+                        }}
+                        placeholder="Last Name"
+                         />
+                    </View>
                     <View style={styles.check}>
                          <CheckBox
                             title="Staff"
@@ -157,17 +168,14 @@ const LogInScreen = ({}) => {
                     />
                     </View>
                     <View style={styles.button}>
-                        <Button1 onPress={() => {onPress(username, password, role); HandleLogin();
-                        }} style={styles.button} text="Log In" />
+                        <Button1 onPress={() => {onPress(username, password, role, first_name, last_name); HandleLogin();
+                        }} style={styles.button} text="Next" />
                     </View>
                     <View style={styles.textW}>
-                        <Link to="/forgotpassword">
-                            <Text style={styles.text}>Forgot your password?</Text>
-                        </Link>
                         <View style={styles.textLine}>
-                            <Text style={styles.text}>don't have an acccount?</Text>
-                            <Link to="/register">
-                                <Text style={styles.textBold}> Register</Text>
+                            <Text style={styles.text}>Already have an account?</Text>
+                            <Link to="/login">
+                                <Text style={styles.textBold}> Log in</Text>
                             </Link>
                         </View>
                     </View>
@@ -177,9 +185,9 @@ const LogInScreen = ({}) => {
     );
 };
 
-LogInScreen.defaultProps = {
+RegisterPage.defaultProps = {
     onPress: ()=> {}
 }
 
 
-export default LogInScreen;
+export default RegisterPage;

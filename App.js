@@ -59,6 +59,7 @@ import FamilyProfile from './pages/family_profile';
 import Settings from './pages/Settings';
 import AccountSettings from './pages/AccountSettings';
 import Tutorial from './pages/Tutorial';
+import RegisterPage from './pages/Register';
 
 const styles = StyleSheet.create({
     maintcont: {
@@ -72,6 +73,7 @@ const App = () => {
             <Route exact path="/" component={FirstScreen} />
             <Route path="/forgotpassword" component={ForgotPassword} />
             <Route path="/login" component={LogInScreen} />
+            <Route path="/register" component={RegisterPage} />
             <Route path="/staffhome" component={Staff_home} />
             <Route path="/staffprofile" component={StaffProfile} />
             <Route path="/upload" component={NewPostScreen} />
