@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Header from '../../comps/Header';
 import Input from '../../comps/Input';
@@ -8,6 +8,8 @@ import Avatar from '../../comps/Avatar';
 import Story from '../../comps/Story';
 import TextStatus from '../../comps/TextStatus';
 import TextGreeting from '../../comps/TextGreeting';
+import { createApi, createAuthApi } from '../../clientapi';
+import Button1 from '../../comps/Button';
 
 import {Dimensions} from 'react-native';
 
@@ -40,14 +42,41 @@ const styles = StyleSheet.create({
   }
 })
 
+
+
+
 const Staff_home = () => {
+
+  const [username, setName] = useState(null);
+
+
+  const HandleProfile = async () => {
+    console.log("clicked")
+  
+    let resp
+    const api = createApi()
+    resp = await api.profile()
+    console.log(resp.data);
+    setName(resp.username);
+  
+    const { token } = resp.data
+    const authApi = createAuthApi(token)
+    resp = await authApi.getUserProfile()
+    console.log(resp.data)
+    // do async stuff
+  
+    //instead of <Link> route after completing script like backend communication
+  }
+  
+
   return (
     <View style={styles.mcont}>
-        <Header />
-          <StoryBox>
+        <Header/>
+          <StoryBox> 
+          <Button1 onPress={HandleProfile}  />
           <View style={styles.input}>
             <Input style={styles.input1} placeholder="Find a patient..." />
-            <TextGreeting name="Amy" />
+            <TextGreeting name={username} />
             </View>
           </StoryBox>          
           <View style={styles.scont}>

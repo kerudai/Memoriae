@@ -97,12 +97,7 @@ const LogInScreen = ({}) => {
 
         let resp
         const api = createApi()
-        resp = await api.login(username, password, role, {
-            username: username,
-            password: password,
-            role: role,
-        }
-            )
+        resp = await api.login(username, password, role, last_name, first_name)
         console.log(resp.data)
 
         const { token } = resp.data
@@ -149,7 +144,7 @@ const LogInScreen = ({}) => {
                     </View>
                     <View style={styles.check}>
                          <CheckBox
-                            title="Staff"
+                            title="Staff ?"
                             uncheckedColor="#F1F1F1"
                             checkedColor="#2A3858"
                             checked={checkedStaff}
