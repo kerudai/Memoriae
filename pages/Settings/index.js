@@ -4,7 +4,7 @@ import BackMiddleNav from "../../comps/BackMiddleNav";
 import TextArrow from "../../comps/TextArrow";
 import Button from "../../comps/Button";
 import Profile from "../../comps/Profile"
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import CenterView from "../../storybook/stories/CenterView";
 
 import { NativeRouter, Route, Link, useHistory } from "react-router-native";
@@ -67,11 +67,11 @@ const Settings = () => {
         </Link>
       </View>
       <View>
-        <View style={styles.nextRoute}>
+        <TouchableOpacity underlayColor="none" style={styles.nextRoute}>
           <Link to="/accountsettings">
           <TextArrow text="Account" />
           </Link>
-        </View>
+        </TouchableOpacity>
         <View>
           <TextArrow text="About" />
         </View>
