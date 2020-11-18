@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, StyleSheet, Text } from "react-native";
+import { View, Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 import Avatar from "../Avatar"
 
 import {Dimensions} from 'react-native';
@@ -52,7 +52,7 @@ txt: {
 
 const Profile = ({ text }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity underlayColor="#ffffff00" style={styles.container}>
       <View style={styles.box}>
         <Avatar dim= {90}/>
         <View style={styles.txt}>
@@ -67,7 +67,7 @@ const Profile = ({ text }) => {
           source={require("../../Images/backnav.png")}
         />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

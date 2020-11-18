@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image} from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity} from "react-native";
 import {Dimensions} from 'react-native';
 import { NativeRouter, Link, useHistory } from "react-router-native";
 
@@ -25,18 +25,19 @@ const styles = StyleSheet.create({
     position:'absolute',
     height:24,
     width:22,
+    backgroundColor:'#2A3858',
     // border: 1
   }
 });
 
 const Header = () => {
   return (
-      <View style={styles.container}>
-        <View  style={styles.img}>
+      <View underlayColor="#ffffff00" style={styles.container}>
+        <TouchableOpacity underlayColor="#ffffff00" style={styles.img}>
           <Link to="/settings">
            <Image source={require('../../Images/profileicon.png')} />
            </Link>
-        </View>
+        </TouchableOpacity>
         <Text style={styles.text}>Memoriae</Text>
       </View>
   );

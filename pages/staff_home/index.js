@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import Header from '../../comps/Header';
 import Input from '../../comps/Input';
 import StoryBox from '../../comps/StoryBox';
@@ -76,11 +76,11 @@ const Staff_home = () => {
     <View style={styles.mcont}>
         <Header/>
           <StoryBox> 
-          <Button1 onPress={HandleProfile}  />
-          <View style={styles.input}>
+          {/* <Button1 onPress={HandleProfile}  /> */}
+          <TouchableOpacity underlayColor="#ffffff00" style={styles.input}>
             <Input style={styles.input1} placeholder="Find a patient..." />
             <TextGreeting name="Amy" />
-            </View>
+            </TouchableOpacity>
           </StoryBox>          
           <View style={styles.scont}>
           <HrDivider />

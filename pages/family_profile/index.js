@@ -112,11 +112,13 @@ import HrDivider from '../../comps/Divider';
 import VrDivider from '../../comps/VrDivider';
 import TimePic from '../../comps/TimePic';
 import SortButton from '../../comps/SortButton';
+import SortWindow from '../../comps/SortWindow';
 
 import { NativeRouter, Link, useHistory } from "react-router-native";
 
-import {View, StyleSheet, Text, ScrollView} from "react-native";
+import {View, StyleSheet, Text, ScrollView, TouchableOpacity} from "react-native";
 import {Dimensions} from 'react-native';
+import { useState } from 'react';
 
 const deviceWidthP = Dimensions.get('window').width*0.90;
 const deviceWidthF = Dimensions.get('window').width;
@@ -146,10 +148,24 @@ const styles = StyleSheet.create({
   HrDividerS: {
     marginTop: -25,
     marginBottom: 25,
-  }
+  },
+  sortPopup: {
+    position: 'absolute',
+    // marginTop: "100%",
+    left: 160,
+    top: 60,
+    zIndex: 10,
+    backgroundColor:"#F1F1F1",
+    opacity: 0.9,
+    // height: deviceHeightF,
+    // justifyContent: "center",
+
+  },
 })
 
 const FamilyProfile = () => {
+
+  const [shouldShow, setShouldShow] = useState(true);
 
   return (
     <View style={styles.homecont}>
@@ -178,20 +194,31 @@ const FamilyProfile = () => {
         <StoryBox>
         <View style={styles.timeline}>
         <Text >Timeline</Text>
-        <View>
-          <SortButton />
+          <View>
+            <TouchableOpacity  onPress={() => setShouldShow(!shouldShow)}>
+              <SortButton />
+            </TouchableOpacity>
+          </View>
         </View>
-        </View>
+
+        <View style={styles.sortPopup}>
+        {/*Here we will return the view when state is true 
+        and will return false if state is false*/}
+        {shouldShow ? (
+          <SortWindow />
+        ) : null}
+      </View>
+
        <View>
-         <TimePic caption="john on his way to hawaii for spring break during college" date="April 21, 1965" />
-         <View style={styles.HrDividerS}>
-         <HrDivider />
-         </View>
+          <TimePic caption="john on his way to hawaii for spring break during college" date="April 21, 1965" />
+          <View style={styles.HrDividerS}>
+            <HrDivider />
+          </View>
        </View>
        <View>
          <TimePic imgurl={require("../../Images/johnswim.png")} date="May 21, 1965" />
        </View>
-       </StoryBox>
+      </StoryBox>
         </ScrollView>
         <View style={styles.media} >
           <Link to="/upload">
