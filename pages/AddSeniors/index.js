@@ -81,51 +81,41 @@ const styles = StyleSheet.create({
 
 
 
-const RegisterPage = ({}) => {
+const AddSenior = ({}) => {
 
-
-    // const Insert = props => {
-    //     const [enteredName, setEnteredName] = useState('');
-
-
-    const history = useHistory();
-    const [checkedStaff, toggleCheckedStaff] = useState(false);
-    const [username, setUsername] = useState("");
+    const [account_number, setAccount_number] = useState("");
     const [first_name, setFirstName] = useState("");
     const [last_name, setLastName] = useState("");
-    const [password, setPassword] = useState("");
-    const role = checkedStaff ? 'staff' : 'family_member';
-    GLOBAL.USERNAME = username;
+    const [birth_date, setBirth_date] = useState("");
+    const [profile_picture, setProfile_picture] = useState("");
+    const [bio, setBio] = useState("");
+    const [likes, setLikes] = useState("");
+    const [dislikes, setDislikes] = useState("");
 
     const onPress = async () => {
-        console.log("Registering...");
+        console.log("Adding seniors", account_number, first_name, last_name, birth_date, profile_picture, bio, likes, dislikes);
 
+        // return false;
         let resp
-        const api = createApi()
-        resp = await api.register({
-            username: username,
-            password: password,
-            role: role,
+        const authApi = createAuthApi()
+
+        // var seniors = await authApi.getConnectedSeniors();
+        // console.log(seniors.data);
+        // return false;;
+    
+        resp = await authApi.addSenior({
+            account_number: parseInt(account_number),
             first_name: first_name,
             last_name: last_name,
-        })
-        console.log(resp.data)
-
-        const { token } = resp.data
-        const authApi = createAuthApi(token)
-        resp = await authApi.getUserProfile()
-        console.log(resp.data)
-        //do async stuff
-
-        //instead of <Link> route after completing script like backend communication
+            birth_date: "1986-11-21T20:15:24+00:00",
+            profile_picture: profile_picture,
+            bio: bio,
+            likes: likes,
+            dislikes: dislikes,
+          })
+        console.log(resp)
     }
 
-    const HandleLogin = async () => {
-        //do async stuff
-
-        //instead of <Link> route after completing script like backend communication
-        history.push("/staffhome")
-    }
     return (
         <View style={styles.main}>
             <View style={[globalstyle.rows, styles.cont]}>
@@ -140,17 +130,9 @@ const RegisterPage = ({}) => {
                 <View style={styles.inner}>
                     <View style={[styles.input, styles.biginput]}>
                         <TextInput style={styles.containerinput}
-                        onChangeText={(text)=>{setUsername(text) 
+                        onChangeText={(text)=>{setAccount_number(text) 
                         }}
-                        placeholder="username"
-                         />
-                    </View>
-                    <View style={[styles.input, styles.biginput]}>
-                    <TextInput style={styles.containerinput}
-                        onChangeText={(text)=>{setPassword(text) 
-                        }}
-                        secureTextEntry={true}
-                        placeholder="Password"
+                        placeholder="Account Number"
                          />
                     </View>
                     <View style={[styles.input, styles.biginput]}>
@@ -167,26 +149,45 @@ const RegisterPage = ({}) => {
                         placeholder="Last Name"
                          />
                     </View>
-                    <View style={styles.check}>
-                         <CheckBox
-                            title="Staff"
-                            uncheckedColor="#F1F1F1"
-                            checkedColor="#2A3858"
-                            checked={checkedStaff}
-                            onPress={() => toggleCheckedStaff(!checkedStaff)}
-                    />
+                    <View style={[styles.input, styles.biginput]}>
+                        <TextInput style={styles.containerinput}
+                        onChangeText={(text)=>{setBirth_date(text) 
+                        }}
+                        placeholder="Birth Date (YYYY-MM-DD)"
+                        //birth_date format for YYYY-MM-DDThh:mm:ssTZD???
+                         />
+                    </View>
+                    <View style={[styles.input, styles.biginput]}>
+                        <TextInput style={styles.containerinput}
+                        onChangeText={(text)=>{setProfile_picture(text) 
+                        }}
+                        placeholder="Upload profile picture"
+                         />
+                    </View>
+                    <View style={[styles.input, styles.biginput]}>
+                        <TextInput style={styles.containerinput}
+                        onChangeText={(text)=>{setBio(text) 
+                        }}
+                        placeholder="Bio"
+                         />
+                    </View>
+                    <View style={[styles.input, styles.biginput]}>
+                        <TextInput style={styles.containerinput}
+                        onChangeText={(text)=>{setLikes(text) 
+                        }}
+                        placeholder="Likes"
+                         />
+                    </View>
+                    <View style={[styles.input, styles.biginput]}>
+                        <TextInput style={styles.containerinput}
+                        onChangeText={(text)=>{setDislikes(text) 
+                        }}
+                        placeholder="Dislikes"
+                         />
                     </View>
                     <View style={styles.button}>
-                        <Button1 onPress={() => {onPress(username, password, role, first_name, last_name); HandleLogin();
-                        }} style={styles.button} text="Next" />
-                    </View>
-                    <View style={styles.textW}>
-                        <View style={styles.textLine}>
-                            <Text style={styles.text}>Already have an account?</Text>
-                            <Link to="/login">
-                                <Text style={styles.textBold}> Log in</Text>
-                            </Link>
-                        </View>
+                        <Button1 onPress={() => {onPress();
+                        }} style={styles.button} text="Add Senior" />
                     </View>
                 </View>
             </View>
@@ -194,9 +195,9 @@ const RegisterPage = ({}) => {
     );
 };
 
-RegisterPage.defaultProps = {
+AddSenior.defaultProps = {
     onPress: ()=> {}
 }
 
 
-export default RegisterPage;
+export default AddSenior;

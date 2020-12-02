@@ -6,38 +6,6 @@
  * @flow strict-local
  */
  //this imports pages seperately
-// import Family_Profile from './pages/family_profile';
-// export default Family_Profile;
-
-// import SortPage from './pages/sortpage';
-// export default SortPage;
-
-// import Staff_home from './pages/staff_home';
-// export default Staff_home;
-
-
-// import LogInScreen from './pages/LogIn';
-// export default LogInScreen;
-
-// import AccountSettings from './pages/AccountSettings';
-// export default AccountSettings;
-
-
-// import Settings from './pages/Settings';
-// export default Settings;
-
-// import Tutorial from './pages/Tutorial';
-// export default Tutorial;
-
-// import Staff_profile from './pages/staff_home';
-// export default Staff_profile;
-
-//  import NewPost from './pages/NewPost'
-//   export default NewPost ;
-
-
-
-
 
 import React from "react";
 import {View, StyleSheet} from 'react-native';
@@ -52,7 +20,7 @@ import FirstScreen from './pages/FirstScreen'
 import ForgotPassword from './pages/ForgotPassword'
 import LogInScreen from './pages/LogIn'
 import Staff_home from './pages/staff_home';
-import StaffProfile from './pages/staff_profile';
+import SeniorProfile from './pages/senior_profile';
 import NewPost from './pages/NewPost';
 import NewPostScreen from "./pages/NewPost";
 import FamilyProfile from './pages/family_profile';
@@ -60,6 +28,8 @@ import Settings from './pages/Settings';
 import AccountSettings from './pages/AccountSettings';
 import Tutorial from './pages/Tutorial';
 import RegisterPage from './pages/Register';
+import AddSenior from './pages/AddSeniors';
+import UpdateSenior from './pages/UpdateSeniors';
 
 const styles = StyleSheet.create({
     maintcont: {
@@ -70,14 +40,14 @@ const styles = StyleSheet.create({
 const App = () => {
     return <NativeRouter>
         <View style={styles.maincont}>
-            <Route exact path="/" component={FirstScreen} />
+            <Route exact path="/" component={LogInScreen} />
             <Route path="/forgotpassword" component={ForgotPassword} />
             <Route path="/login" component={LogInScreen} />
             <Route path="/register" component={RegisterPage} />
             <Route path="/staffhome" component={Staff_home} />
-            <Route path="/staffprofile" component={StaffProfile} />
+            <Route path="/seniorprofile/:id" component={SeniorProfile} />
             <Route path="/upload" component={NewPostScreen} />
-            <Route path="/familyprofile" component={FamilyProfile} />
+            
             <Route path="/settings" component={Settings} />
             <Route path="/accountsettings" component={AccountSettings} />
             <Route path="/tutorial" component={Tutorial} />
@@ -89,122 +59,3 @@ const App = () => {
 export default App;
 
 
-//  import LogInScreen from './pages/LogInScreen'
-//  export default LogInScreen ;
-
-
-// import ForgotPassword from './pages/ForgotPassword'
-// export default ForgotPassword ;
-
-
-// import { NativeRouter, Route, Link } from "react-router-native";
-
-
-// import React from 'react';
-// import {
-//   SafeAreaView,
-//   StyleSheet,
-//   ScrollView,
-//   View,
-//   Text,
-//   StatusBar,
-// } from 'react-native';
-
-// import {
-//   Header,
-//   LearnMoreLinks,
-//   Colors,
-//   DebugInstructions,
-//   ReloadInstructions,
-// } from 'react-native/Libraries/NewAppScreen';
-
-// const App: () => React$Node = () => {
-//   return (
-//     <>
-//       <StatusBar barStyle="dark-content" />
-//       <SafeAreaView>
-//         <ScrollView
-//           contentInsetAdjustmentBehavior="automatic"
-//           style={styles.scrollView}>
-//           <Header />
-//           {global.HermesInternal == null ? null : (
-//             <View style={styles.engine}>
-//               <Text style={styles.footer}>Engine: Hermes</Text>
-//             </View>
-//           )}
-//           <View style={styles.body}>
-//             <View style={styles.sectionContainer}>
-//               <Text style={styles.sectionTitle}>Step One</Text>
-//               <Text style={styles.sectionDescription}>
-//                 Edit <Text style={styles.highlight}>App.js</Text> to change this
-//                 screen and then come back to see your edits.
-//               </Text>
-//             </View>
-//             <View style={styles.sectionContainer}>
-//               <Text style={styles.sectionTitle}>See Your Changes</Text>
-//               <Text style={styles.sectionDescription}>
-//                 <ReloadInstructions />
-//               </Text>
-//             </View>
-//             <View style={styles.sectionContainer}>
-//               <Text style={styles.sectionTitle}>Debug</Text>
-//               <Text style={styles.sectionDescription}>
-//                 <DebugInstructions />
-//               </Text>
-//             </View>
-//             <View style={styles.sectionContainer}>
-//               <Text style={styles.sectionTitle}>Learn More</Text>
-//               <Text style={styles.sectionDescription}>
-//                 Read the docs to discover what to do next:
-//               </Text>
-//             </View>
-//             <LearnMoreLinks />
-//           </View>
-//         </ScrollView>
-//       </SafeAreaView>
-//     </>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   scrollView: {
-//     backgroundColor: Colors.lighter,
-//   },
-//   engine: {
-//     position: 'absolute',
-//     right: 0,
-//   },
-//   body: {
-//     backgroundColor: Colors.white,
-//   },
-//   sectionContainer: {
-//     marginTop: 32,
-//     paddingHorizontal: 24,
-//   },
-//   sectionTitle: {
-//     fontSize: 24,
-//     fontWeight: '600',
-//     color: Colors.black,
-//   },
-//   sectionDescription: {
-//     marginTop: 8,
-//     fontSize: 18,
-//     fontWeight: '400',
-//     color: Colors.dark,
-//   },
-//   highlight: {
-//     fontWeight: '700',
-//   },
-//   footer: {
-//     color: Colors.dark,
-//     fontSize: 12,
-//     fontWeight: '600',
-//     padding: 4,
-//     paddingRight: 12,
-//     textAlign: 'right',
-//   },
-// });
-
-// // export default App;
-
-// export {default} from './storybook'; 

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#2A3858',
     borderRadius:2,
     padding: 10,
-    minWidth: 200,
+    minWidth: 120,
     minHeight: 50,
     margin: 10,
     justifyContent: "center",

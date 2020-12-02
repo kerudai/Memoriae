@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import globalstyle from "../globalstyle";
 import Input from '../../comps/Input';
 import UploadMedia from '../../comps/UploadMedia';
@@ -7,22 +7,22 @@ import StoryBox from '../../comps/StoryBox';
 import TextName from '../../comps/TextName';
 import InputTitle from '../../comps/InputTitle';
 import HrDivider from '../../comps/Divider';
+import { createApi, createAuthApi } from '../../clientapi';
 
+import { Dimensions } from 'react-native';
 
-import {Dimensions} from 'react-native';
-
-const deviceWidthButton = Dimensions.get('window').width*0.85;
+const deviceWidthButton = Dimensions.get('window').width * 0.85;
 const deviceWidthF = Dimensions.get('window').width;
-const deviceWidthH = Dimensions.get('window').width*0.90;
-const deviceHeightP = Dimensions.get('window').height*0.70;
-const deviceHeightT = Dimensions.get('window').height*0.10;
+const deviceWidthH = Dimensions.get('window').width * 0.90;
+const deviceHeightP = Dimensions.get('window').height * 0.70;
+const deviceHeightT = Dimensions.get('window').height * 0.10;
 
 import { PermissionsAndroid, Platform } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 
 
 import { NativeRouter, Link, useHistory } from "react-router-native";
-import {View, StyleSheet, Text} from "react-native"
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native"
 
 const styles = StyleSheet.create({
     upperBox: {
@@ -62,38 +62,75 @@ const styles = StyleSheet.create({
     media: {
         width: deviceWidthButton,
         position: 'absolute',
-        bottom:10
+        bottom: 10
     }
 })
 
 const NewPostScreen = () => {
+    const [senior_id, setSenior_id] = useState("");
+    //where does senior_id go?
+    const [mtitle, setTitle] = useState("");
+    const [mdate, setDate] = useState("");
+    const [mcontent, setContent] = useState("");
+    //Things to set
+    //states
+    //onchangetext
+    //function
+    //do async call 
 
-      
+    const onPress = async () => {
+        console.log("You are about to post!", senior_id, mtitle, mdate, mcontent);
+
+        let resp
+        const api = createAuthApi()
+        resp = await api.addEntry({
+            role: "family_member",
+            senior_id: 560,
+            title: mtitle,
+            date: mdate,
+            content: mcontent
+        })
+        console.log("new entry",resp, senior_id)
+        
+    }
 
     return (
         <View style={styles.mcont}>
             <View style={styles.upperBox}>
                 <Link to="/familyprofile">
-                <CloseIcon />
+                    <CloseIcon />
                 </Link>
                 <TextName text="New post" />
-                <Link to="/familyprofile">
-                <Text style={styles.textN}>Next</Text>
-                </Link>
+                <TouchableOpacity onPress={onPress}>
+
+                    <Text style={styles.textN}>Next</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.title}>
-                <InputTitle placeholder="Story title"/>
-                <View  style={styles.divider}>
-                <HrDivider />
+                <InputTitle placeholder="Story title"
+                    onChangeText={(text) => {
+                        setTitle(text)
+                    }}
+                />
+                <View style={styles.divider}>
+                    <HrDivider />
                 </View>
-                <InputTitle placeholder="Story Date"/>
-                <View  style={styles.divider}>
-                <HrDivider />
+                <InputTitle placeholder="Story Date"
+                    onChangeText={(text) => {
+                        setDate(text)
+                    }}
+                />
+                <View style={styles.divider}>
+                    <HrDivider />
                 </View>
             </View>
             <View>
                 <View style={styles.input} >
-                <InputTitle placeholder="type your story" />
+                    <InputTitle placeholder="type your story"
+                        onChangeText={(text) => {
+                            setContent(text)
+                        }}
+                    />
                 </View>
             </View>
             <View style={styles.media}>
@@ -103,128 +140,9 @@ const NewPostScreen = () => {
     );
 };
 
+NewPostScreen.defaultProps = {
+    onPress: () => { }
+}
+
 export default NewPostScreen;
 
-// const styles = StyleSheet.create({
-//     cont: {
-//         backgroundColor: "white",
-//         alignItems: "center",
-//         // flex: 1,
-//         margin: 15,
-//         borderRadius: 5,
-//         // justifyContent: "center"
-//     },
-//     main: {
-//         backgroundColor: "#F5F5F5",
-//         flex: 1,
-//     },
-//     header: {
-//        flexDirection: "row",
-//        justifyContent: "space-evenly",
-//        width: deviceWidth,
-//        alignItems: "baseline",
-//        marginTop: 10,
-//        marginBottom: 30,
-//     },
-//     title: {
-//         fontWeight: "bold",
-//         fontSize: 22,
-//     },
-//     NextT: {
-//         color: "#2A3858",
-//         fontWeight: "bold",
-//         fontSize: 14
-//     },
-//     inner: {
-//         alignItems: "center",
-//     },
-//     line: {
-//         width: 340,
-//         height: 1,
-//         borderColor: "black",
-//         borderWidth: 0.5,
-//         marginTop: 2,
-//     },
-//     text: {
-//         fontSize: 16,
-//     },
-//     button: {
-//         // alignItems: "center",
-//         // position: "absolute",
-//         bottom: 70,
-//         width: 320,
-//         maxHeight: 50,
-    
-//     },
-//     date: {
-//         marginTop: 40,
-//     },
-//     type: {
-//         height: 480,
-//         width: deviceWidth,
-//         alignItems: "center",
-//         zIndex: 5,
-//         // justifyContent: "center",
-//         // borderRadius: 15,
-//         // borderColor: "black",
-//         // borderWidth: 0.5,
-//     },
-//     input: {
-//         width: deviceWidthH,
-//         height: 490,
-//         borderRadius: 15,
-//         marginTop: 40,
-//         zIndex: 10,
-//     },
-//     close: {
-//         // alignSelf: 'auto',
-//         backgroundColor: '#FAD',
-//         width: 40,
-//         // marginBottom: 25,r
-//     },
-// });
-
-// const NewPostScreen = () => {
-
-//     return (
-//         <View style={styles.main}>
-//             <View style={[globalstyle.rows, styles.cont]}>
-//                 <View style={styles.header}>
-//                     <View style={styles.close}>
-//                         <Link to="/familyprofile">
-//                             <CloseIcon />
-//                         </Link>
-//                     </View>
-//                     <Text style={styles.title}>New Post</Text>
-//                     <View>
-//                     <Link to="/familyprofile">
-//                     <Text style={styles.NextT}>Next</Text>
-//                     </Link>
-//                     </View>
-//                 </View>
-//                 <View style={styles.inner}>
-//                     <View styles={styles.h1}>
-//                         <Text style={styles.text}>Story Title</Text>
-//                         <View style={styles.line} />
-//                     </View>
-//                     <View style={styles.date}>
-//                         <Text style={styles.text}>Story Title</Text>
-//                         <View style={styles.line} />
-//                     </View>
-//                     <View style={styles.type}>
-//                         <View style={styles.input}>
-//                             <Input placeholder="start typing..." />
-//                         </View>
-//                         <View style={styles.button} >
-//                             <UploadMedia onPress={() => {
-//           alert("Date Added (oldest) tapped!");
-//         }} text="Add Pictures" />
-//                         </View>
-//                     </View>
-//                 </View>
-//             </View>
-//         </View>
-//     );
-// };
-
-// export default NewPostScreen;
