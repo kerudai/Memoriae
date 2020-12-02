@@ -28,7 +28,7 @@ const MyAvatar = ({ imgurl, dim }) => {
         // style={[styles.image, imgstyle]}
         style={styles.image}
         borderRadius={dim/2}
-        source={imgurl}
+        source={{uri: imgurl}}
         resizeMode={"cover"}
       ></Image>
     </View>
@@ -36,7 +36,7 @@ const MyAvatar = ({ imgurl, dim }) => {
 }
 
 MyAvatar.defaultProps = {
-  imgurl: require("../../Images/john.png"),
+  imgurl: "https://images.unsplash.com/photo-1590074251929-76f7c465a3bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
   dim: 90,
 };
 

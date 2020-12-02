@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, TouchableOpacity, View, Dimensions, Text } from 'react-native';
 import Header from '../../comps/Header';
 import Input from '../../comps/Input';
 import StoryBox from '../../comps/StoryBox';
@@ -10,23 +10,31 @@ import TextStatus from '../../comps/TextStatus';
 import TextGreeting from '../../comps/TextGreeting';
 import { createApi, authApi, createAuthApi } from '../../clientapi';
 import Button1 from '../../comps/Button';
-
-import {Dimensions} from 'react-native';
-
 import { NativeRouter, Link, useHistory } from "react-router-native";
 
-const deviceWidth = Dimensions.get('window').width*0.85
+const deviceWidth = Dimensions.get('window').width * 0.85
 
 const styles = StyleSheet.create({
   mcont: {
     alignItems: "center",
   },
-  
-  input: {
+  greetingbox: {
     width: deviceWidth,
     justifyContent: "space-between",
-    height: 100,
     margin: 10,
+  },
+  input: {
+    height: 200
+  },
+  searchbutton: {
+    marginTop: 30
+  },
+  connectbutton: {
+    marginTop: 30
+  },
+  box: {
+    flexDirection: "row",
+    justifyContent: "center"
   },
   scont: {
   },
@@ -39,90 +47,146 @@ const styles = StyleSheet.create({
   fcont: {
     marginLeft: 15,
     padding: 5,
+  },
+  connect: {
+    // position: "absolute",
+    // right:0
+    // flexDirection: "row",
+    // alignSelf:"center",
+    // borderWidth: 1,
+    // borderColor: "green",
+    // borderRadius: 5,
+    // padding: 5
+    width: 100,
   }
 })
 
+var arr = [
+  {
+    id: 1,
+    first_name: "Hecter",
+    last_name: "Saladmenka",
+    birth_date: 19390909,
+    profile_picture: "picture",
+    bio: "bio",
+    likes: "Chilly",
+    dislikes: "Goose",
+    last_update: "Los Pollos has been his favorite...",
+    created_at: "20200914"
+  },
+  {
+    id: 2,
+    first_name: "Skyler",
+    last_name: "Shaw",
+    birth_date: 20010919,
+    profile_picture: "picture",
+    bio: "bio",
+    likes: "fish",
+    dislikes: "potatoe",
+    last_update: "Car wash has benn on her mind...",
+    created_at: "20200915"
+  },
+  {
+    id: 3,
+    first_name: "Wauter",
+    last_name: "Black",
+    birth_date: 19450520,
+    profile_picture: "picture",
+    bio: "bio",
+    likes: "Chemistry",
+    dislikes: "Fly",
+    last_update: "Wauter recently has found...",
+    created_at: "20201124"
+  }
+]
 
 
 
 const Staff_home = () => {
 
+  const [account, setAccount] = useState("");
+  const [seniors, setSeniors] = useState([]);
+  /*const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoic3RhZmYiLCJ1c2VyX2lkIjoxLCJleHAiOjEwMDAwMDAwMDAwfQ.LDtKGdZsdnjy-myhmbxWOQMhe7w2dcls7lnNt6lTFcc";*/
 
+  const search = async () => {
+    console.log("Seraching...");
 
-  const HandleProfile = async () => {
-
-
-    console.log("clicked")
-
-    let resp
-    const api = createApi()
-    resp = await api.register({username, password, role, first_name, last_name})
-    console.log(resp.data)
-    console.log(Resp.data.token)
-    const { token } = resp.data
-    const authApi = createAuthApi(token)
-    resp = await authApi.getUserProfile()
-    console.log(resp.data)
-    console.log(resp.data.username)
-
-  
-    // do async stuff
-  
-    //instead of <Link> route after completing script like backend communication
+    const authApi = createAuthApi()
+    let search = await authApi.getSenior({
+      account_number: account,
+    })
+    console.log(search.data)
+    setAccount(search.data)
   }
-  
+
+  const GetAllConnectedSeniors = async () => {
+    const authApi = createAuthApi()
+    /*await get all connected seniors*/
+    var resp = await authApi.getConnectedSeniors()
+    /*console.log the array out*/
+    /*var resp = {
+      data:arr
+    }*/
+    console.log("Get seniors!(staff_home)", resp.data);
+    setSeniors([...resp.data]);
+  }
+  // const onPress = async () => {
+  //   console.log("Connecting to senior..");
+
+  //   let connect
+  //   const api = createAuthApi()
+  //   connect = await api.connectSenior({
+  //     account_number: account_number
+  //   })
+  //   console.log("Connected!")
+  // }
+
+  useEffect(() => {
+    GetAllConnectedSeniors();
+  }, [])
+
 
   return (
     <View style={styles.mcont}>
-        <Header/>
-          <StoryBox> 
-          {/* <Button1 onPress={HandleProfile}  /> */}
-          <TouchableOpacity underlayColor="#ffffff00" style={styles.input}>
-            <Input style={styles.input1} placeholder="Find a patient..." />
-            <TextGreeting name="Amy" />
-            </TouchableOpacity>
-          </StoryBox>          
-          <View style={styles.scont}>
-          <HrDivider />
-            <StoryBox>
-            <Link to="/staffprofile">
-              <View style={styles.tcont}>
-                <Avatar dim={75} />
-                <View style={styles.fcont}>
-                <TextStatus Name="John Moon" Update="Recent story: in his nearlier years John .." />
-                </View>
-              </View>
-              </ Link>
-              <Link to="/staffprofile">
-              <View style={styles.tcont}>
-                <Avatar dim={75} imgurl={require("../../Images/rita.png")} />
-                <View style={styles.fcont}>
-                <TextStatus  Name="Rita Baker" Update="Recent story: in her nearlier years Rita .."/>
-                </View>
-              </View>
-              </ Link>
-              <Link to="/staffprofile">
-              <View style={styles.tcont}>
-                <Avatar dim={75} imgurl={require("../../Images/tony.png")} />
-                <View style={styles.fcont}>
-                    <TextStatus  Name="Tony Raj" Update="Recent story: in his nearlier years Tony .." />
-                </View>
-              </View>
-              </Link>
-              <Link to="/staffprofile">
-              <View style={styles.tcont}>
-                <Avatar dim={75} imgurl={require("../../Images/pascal.png")} />
-                <View style={styles.fcont}>
-                    <TextStatus  Name="Pascal Frau" Update="Recent story: in his nearlier years Pascal .." />
-                </View>
-              </View>
-              </Link>
-            </StoryBox>
+      <Header />
+      <StoryBox>
+        {/* <Button1 onPress={HandleProfile}  /> */}
+        <TouchableOpacity underlayColor="#ffffff00" style={styles.greetingbox}>
+          <View style={styles.box}> 
+            <Input style={styles.input} placeholder="Enter 5 digit number of the senior..."
+              // onChangeText={(text) => {setAccount(text)}}
+              onChangeText={GetAllConnectedSeniors} 
+              />
+            <View style={styles.searchbutton}>
+              <Button1 text="Search" 
+                onPress={() => { search(account) }}
+                />
+            </View>
           </View>
+          <TextGreeting name="staffkeju" />
+        </TouchableOpacity>
+      </StoryBox>
+      <View style={styles.scont}>
+        <HrDivider />
+        <StoryBox>
+          {seniors.map((o, i) => {
+            return <Link key={i} to={"/seniorprofile/" + o.id}>
+              <View style={styles.tcont}>
+                <Avatar dim={75} imgurl={o.profile_picture}/>
+                <View style={styles.fcont}>
+                  <TextStatus Name={o.first_name + ' ' + o.last_name} Update={o.last_update} />
+                </View>
+              </View>
+            </ Link>
+          })}
+        </StoryBox>
+      </View>
     </View>
   )
+}
 
-  
+Staff_home.defaultProps = {
+  onPress: () => { }
 }
 
 export default Staff_home;

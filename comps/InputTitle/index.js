@@ -22,15 +22,14 @@ container: {
     },
 });
 
-const InputTitle = ({ placeholder }) => {
+const InputTitle = ({ onChangeText, placeholder }) => {
 
   const [text, setText] = useState('');
       return (
       <View style={styles.big}>
-        <TextInput style={[styles.container, styles.height]}
+        <TextInput onChangeText={onChangeText} style={[styles.container, styles.height]}
          placeholder={placeholder}
          multiline={true}
-        onChangeText={text => setText(text)}
         defaultValue={text}>
         </TextInput>
         </View>
@@ -39,6 +38,7 @@ const InputTitle = ({ placeholder }) => {
   
   InputTitle.defaultProps = {
     placeholder: "Default Input Title",
+    onChangeText: ()=>{}
   };
 
 export default InputTitle;

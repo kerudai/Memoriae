@@ -1,7 +1,11 @@
 import axios from 'axios'
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const domain = 'https://mem.terse.live'
-
+let saved_token = null;
+(async()=>{
+  saved_token = await AsyncStorage.getItem("@token");
+  console.log(saved_token);
+})();
 export const createApi = () => {
   const api = axios.create({
     baseURL: domain
@@ -15,11 +19,14 @@ export const createApi = () => {
   }
 }
 
-export const createAuthApi = (token) => {
+export const createAuthApi = (token=null) => {
+  if(!saved_token){
+    saved_token = token;
+  }
   const authApi = axios.create({
     baseURL: domain,
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token || saved_token}`
     }
   })
 
