@@ -50,20 +50,24 @@ const AccountSettings = () => {
   return (
     <View  style={styles.main} >
       <View>
-        <BackMiddleNav onPress={HandleBack} text="Account Settings" />
+        <BackMiddleNav onPress={HandleBack} text="Account Reset" />
       </View>
       <View style={styles.textbox}>
         <View style={styles.scont}>
-            <Text style={styles.text} >Username</Text>
-            <Input placeholder="update username" />
+            <Text style={styles.text} >Username: familykeju</Text>
+            <Input placeholder="Update username" />
         </View>
         <View style={styles.scont}>
-           <Text style={styles.text}>Password</Text>
-           <Input placeholder="update password" />
+           <Text style={styles.text}>Reset Password:</Text>
+           <Input placeholder="Type old password" />
+        </View>
+        <View style={styles.scont}>
+           <Text style={styles.text}>New Password:</Text>
+           <Input placeholder="Type new password" />
         </View>
       </View>
       <View style={styles.button} >
-         <Button1 onPress={HandleBack} text="Update info"/>
+         <Button1 onPress={HandleBack} text="Update"/>
       </View>
     </View>
     

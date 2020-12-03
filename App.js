@@ -22,6 +22,7 @@ import LogInScreen from './pages/LogIn'
 import Staff_home from './pages/staff_home';
 import SeniorProfile from './pages/senior_profile';
 import NewPost from './pages/NewPost';
+import EditPost from './pages/EditPost';
 import NewPostScreen from "./pages/NewPost";
 import FamilyProfile from './pages/family_profile';
 import Settings from './pages/Settings';
@@ -30,6 +31,7 @@ import Tutorial from './pages/Tutorial';
 import RegisterPage from './pages/Register';
 import AddSenior from './pages/AddSeniors';
 import UpdateSenior from './pages/UpdateSeniors';
+import EditPostScreen from "./pages/EditPost";
 
 const styles = StyleSheet.create({
     maintcont: {
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
 const App = () => {
     return <NativeRouter>
         <View style={styles.maincont}>
-            <Route exact path="/" component={LogInScreen} />
+            <Route exact path="/" component={FirstScreen} />
             <Route path="/forgotpassword" component={ForgotPassword} />
             <Route path="/login" component={LogInScreen} />
             <Route path="/register" component={RegisterPage} />

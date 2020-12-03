@@ -59,7 +59,7 @@ const Tutorial = () => {
       <BackMiddleNav onPress={HandleBack} text="Help" />
       </View>
       <View style={styles.box}>
-        <TutorialText text='Tutorial' desc='description' />
+        <TutorialText text='' desc='' />
         <Image
           style={styles.stretch}
           source={require('../../Images/tut.png')}

@@ -63,17 +63,17 @@ const Settings = () => {
       </View>
       <View style={styles.userProfile}>
         <Link to="familyprofile">
-        <Profile text="John Moon" />
+        <Profile text="familykeju" />
         </Link>
       </View>
       <View>
         <TouchableOpacity underlayColor="none" style={styles.nextRoute}>
           <Link to="/accountsettings">
-          <TextArrow text="Account" />
+          <TextArrow text="Account Reset" />
           </Link>
         </TouchableOpacity>
         <View>
-          <TextArrow text="About" />
+          <TextArrow text="About Memoriae" />
         </View>
         <View>
           <Link to="/tutorial">

@@ -57,7 +57,7 @@ const Profile = ({ text }) => {
         <Avatar dim= {90}/>
         <View style={styles.txt}>
           <Text style={styles.text}>{text}</Text>
-          <Text style={styles.text2}>View Profile</Text>
+          <Text style={styles.text2}>View your profile</Text>
         </View>
       </View>
       
