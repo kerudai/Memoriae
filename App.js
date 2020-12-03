@@ -16,7 +16,7 @@ const deviceHeight = Dimensions.get('window').height;
 
 
 
-import FirstScreen from './pages/FirstScreen'
+import FirstScreen from './pages/EditPost'
 import ForgotPassword from './pages/ForgotPassword'
 import LogInScreen from './pages/LogIn'
 import Staff_home from './pages/staff_home';
