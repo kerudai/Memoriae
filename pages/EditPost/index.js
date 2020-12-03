@@ -53,8 +53,8 @@ const styles = StyleSheet.create({
     input: {
         width: deviceWidthH,
         
-        // height: deviceHeightP,
-        height: 290,
+        height: deviceHeightP,
+        // height: 290,
         
         borderStyle: 'solid',
         borderColor: '#1F1F1F',
@@ -97,11 +97,11 @@ const styles = StyleSheet.create({
 })
 
 const EditPostScreen = () => {
-    const [senior_id, setSenior_id] = useState("");
+    const [id, setSenior_id] = useState("");
     //where does senior_id go?
-    const [mtitle, setTitle] = useState("");
-    const [mdate, setDate] = useState("");
-    const [mcontent, setContent] = useState("");
+    const [title, setTitle] = useState("");
+    const [date, setDate] = useState("");
+    const [content, setContent] = useState("");
     //Things to set
     //states
     //onchangetext
@@ -109,18 +109,18 @@ const EditPostScreen = () => {
     //do async call 
 
     const onPress = async () => {
-        console.log("You are about to post!", senior_id, mtitle, mdate, mcontent);
+        console.log("You are editing a post!", id, title, date, content);
 
         let resp
         const api = createAuthApi()
-        resp = await api.addEntry({
+        resp = await api.updateEntry({
             role: "family_member",
-            senior_id: 560,
-            title: mtitle,
-            date: mdate,
+            id: id,
+            title: title,
+            date: date,
             content: mcontent
         })
-        console.log("new entry",resp, senior_id)
+        console.log("Updated entry",resp)
         
     }
 
@@ -163,19 +163,19 @@ const EditPostScreen = () => {
                             }}
                         />
 
-                        <TimePic date="" caption="" imgurl={require("../../Images/hangzhou.jpeg")}/>
+                        {/* <TimePic date="" caption="" imgurl={require("../../Images/hangzhou.jpeg")}/> */}
                     
                     </View>
                 </View>
             </View>
             
-            {/* <View style={styles.media}>
+            <View style={styles.media}>
                 <TouchableOpacity>
                 <UploadMedia />
                 </TouchableOpacity>
-            </View> */}
+            </View>
             
-            <View style={styles.photobox}>
+            {/* <View style={styles.photobox}>
                 <View style={styles.phototext}>
                     <Text style={styles.recent}>Recent photo     </Text>
                     <Text style={styles.all}>All photo</Text>
@@ -188,7 +188,7 @@ const EditPostScreen = () => {
                     </TouchableOpacity>
                     <TimePic date="" caption="" imgurl={require("../../Images/wedding.jpeg")}/>
                 </View>
-            </View>
+            </View> */}
 
         </View>
     );
