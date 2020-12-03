@@ -85,7 +85,7 @@ const FamilyProfile = () => {
       <ScrollView>
       <View style={styles.image}>
           <StoryBox>
-            <MyAvatar dim={180}/>
+            <MyAvatar dim={180} />
             <TextName style={styles.name} text="Ryan Gozling" />
             <EditIcon style={styles.edit}/>
           </StoryBox>
@@ -114,7 +114,13 @@ const FamilyProfile = () => {
             <TouchableOpacity  onPress={() => setShouldShow(!shouldShow)}>
               <SortButton />
             </TouchableOpacity>
-            <EditIcon style={styles.edit}/>
+            <Link to="/">
+            <TouchableOpacity>
+              
+              <EditIcon style={styles.edit}/>
+              
+            </TouchableOpacity>
+            </Link>
           </View>
         </View>
 
@@ -127,7 +133,8 @@ const FamilyProfile = () => {
       </View>
 
        <View>
-          <TimePic caption="john on his way to hawaii for spring break during college" date="April 21, 1965" />
+          {/* <TimePic caption="john on his way to hawaii for spring break during college" date="April 21, 1965" /> */}
+          <TimePic date="May 1st, 2015" caption="A scene in Hangzhou" imgurl={require("../../Images/hangzhou.jpeg")}/>
           <View style={styles.HrDividerS}>
             <HrDivider />
           </View>

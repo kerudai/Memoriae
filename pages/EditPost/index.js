@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import globalstyle from "../globalstyle";
 import Input from '../../comps/Input';
-import TimePic from '../../comps/TimePic';
 import UploadMedia from '../../comps/UploadMedia';
 import CloseIcon from '../../comps/CloseIcon';
 import StoryBox from '../../comps/StoryBox';
 import TextName from '../../comps/TextName';
 import InputTitle from '../../comps/InputTitle';
 import HrDivider from '../../comps/Divider';
+import TimePic from '../../comps/TimePic';
 import { createApi, createAuthApi } from '../../clientapi';
 
 import { Dimensions } from 'react-native';
@@ -26,6 +26,12 @@ import { NativeRouter, Link, useHistory } from "react-router-native";
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native"
 
 const styles = StyleSheet.create({
+    textbox: {
+        backgroundColor: "white",
+        marginTop: 10,
+        padding: 5,
+        borderRadius:5
+    },
     upperBox: {
         flexDirection: 'row',
         width: deviceWidthH,
@@ -36,7 +42,7 @@ const styles = StyleSheet.create({
     },
     mcont: {
         alignItems: 'center',
-        backgroundColor: "#F5F5F5"
+        backgroundColor: "#EBEBEB"
     },
     textN: {
         color: "#2A3858",
@@ -46,8 +52,10 @@ const styles = StyleSheet.create({
     },
     input: {
         width: deviceWidthH,
+        
         // height: deviceHeightP,
-        height: 350,
+        height: 290,
+        
         borderStyle: 'solid',
         borderColor: '#1F1F1F',
         borderRadius: 5,
@@ -66,10 +74,29 @@ const styles = StyleSheet.create({
         width: deviceWidthButton,
         position: 'absolute',
         bottom: 10
+    },
+    photobox: {
+        backgroundColor: "#EBEBEB",
+        width: deviceWidthH,
+        marginTop: 15,
+        borderRadius: 5
+    },
+    phototext: {
+        flexDirection: "row",
+        padding: 5
+    },
+    photo: {
+        flexDirection: "row"
+    },
+    all: {
+        color: "gray"
+    },
+    recent: {
+        color: "black"
     }
 })
 
-const NewPostScreen = () => {
+const EditPostScreen = () => {
     const [senior_id, setSenior_id] = useState("");
     //where does senior_id go?
     const [mtitle, setTitle] = useState("");
@@ -99,48 +126,55 @@ const NewPostScreen = () => {
 
     return (
         <View style={styles.mcont}>
-            <View style={styles.upperBox}>
-                <Link to="/familyprofile">
-                    <CloseIcon />
-                </Link>
-                <TextName text="Add post" />
-                <TouchableOpacity onPress={onPress}>
+            <View style={styles.textbox}>
+                <View style={styles.upperBox}>
+                    <Link to="/familyprofile">
+                        <CloseIcon />
+                    </Link>
+                    <TextName text="Edit post" />
+                    <TouchableOpacity onPress={onPress}>
 
-                    <Text style={styles.textN}>Next</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.title}>
-                <InputTitle placeholder="Story title"
-                    onChangeText={(text) => {
-                        setTitle(text)
-                    }}
-                />
-                <View style={styles.divider}>
-                    <HrDivider />
+                        <Text style={styles.textN}>Post</Text>
+                    </TouchableOpacity>
                 </View>
-                <InputTitle placeholder="Story Date"
-                    onChangeText={(text) => {
-                        setDate(text)
-                    }}
-                />
-                <View style={styles.divider}>
-                    <HrDivider />
-                </View>
-            </View>
-            <View>
-                <View style={styles.input} >
-                    <InputTitle placeholder="type your story"
+                <View style={styles.title}>
+                    <InputTitle placeholder="Story title"
                         onChangeText={(text) => {
-                            setContent(text)
+                            setTitle(text)
                         }}
                     />
+                    <View style={styles.divider}>
+                        <HrDivider />
+                    </View>
+                    <InputTitle placeholder="Story Date"
+                        onChangeText={(text) => {
+                            setDate(text)
+                        }}
+                    />
+                    <View style={styles.divider}>
+                        <HrDivider />
+                    </View>
+                </View>
+                <View>
+                    <View style={styles.input} >
+                        <InputTitle placeholder="type your story"
+                            onChangeText={(text) => {
+                                setContent(text)
+                            }}
+                        />
+
+                        <TimePic date="" caption="" imgurl={require("../../Images/hangzhou.jpeg")}/>
+                    
+                    </View>
                 </View>
             </View>
-            <View style={styles.media}>
+            
+            {/* <View style={styles.media}>
                 <TouchableOpacity>
                 <UploadMedia />
                 </TouchableOpacity>
-            </View>
+            </View> */}
+            
             <View style={styles.photobox}>
                 <View style={styles.phototext}>
                     <Text style={styles.recent}>Recent photo     </Text>
@@ -155,13 +189,14 @@ const NewPostScreen = () => {
                     <TimePic date="" caption="" imgurl={require("../../Images/wedding.jpeg")}/>
                 </View>
             </View>
+
         </View>
     );
 };
 
-NewPostScreen.defaultProps = {
+EditPostScreen.defaultProps = {
     onPress: () => { }
 }
 
-export default NewPostScreen;
+export default EditPostScreen;
 
